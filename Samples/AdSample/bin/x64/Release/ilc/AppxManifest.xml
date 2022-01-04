@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp build" xmlns:build="http://schemas.microsoft.com/developer/appx/2015/build">
+  <!--
+  此包清单文件由生成过程生成。
+
+  如果重新生成此文件，将丢失对其所做的更改。若要更正此文件中的错误，请编辑源 .appxmanifest 文件。
+
+  有关程序包清单文件的详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkID=241727
+ -->
+  <Identity Name="21340CondenseEnergyIntera.723" Publisher="CN=B4CCABA8-78FD-4222-A04C-15E23E24595A" Version="1.0.2.0" ProcessorArchitecture="x64" />
+  <mp:PhoneIdentity PhoneProductId="5468ed94-8d75-4537-8c01-b76c7ddb1603" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Properties>
+    <DisplayName>723测试</DisplayName>
+    <PublisherDisplayName>CondenseEnergy Interactive INC</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.10586.0" MaxVersionTested="10.0.14393.0" />
+    <PackageDependency Name="Microsoft.NET.Native.Framework.1.7" MinVersion="1.7.27413.0" Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US" />
+    <PackageDependency Name="Microsoft.NET.Native.Runtime.1.7" MinVersion="1.7.25531.0" Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US" />
+    <PackageDependency Name="Microsoft.VCLibs.140.00" MinVersion="14.0.22929.0" Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US" />
+  </Dependencies>
+  <Resources>
+    <Resource Language="EN-US" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="AdSample.exe" EntryPoint="AdSample.App">
+      <uap:VisualElements DisplayName="723测试" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="AdSample" BackgroundColor="transparent">
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png">
+        </uap:DefaultTile>
+        <uap:SplashScreen Image="Assets\SplashScreen.png" />
+      </uap:VisualElements>
+      <uap:ApplicationContentUriRules>
+        <uap:Rule Match="http://www.w10yx.com/" Type="include" WindowsRuntimeAccess="none" />
+        <uap:Rule Match="http://torrex.w10yx.com" Type="include" WindowsRuntimeAccess="none" />
+      </uap:ApplicationContentUriRules>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClient" />
+  </Capabilities>
+  <Extensions>
+    <Extension Category="windows.activatableClass.inProcessServer">
+      <InProcessServer>
+        <Path>AdSample.dll</Path>
+        <ActivatableClass ActivatableClassId="MiracleGames.Services.Core.Common.AsyncProcessResult" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.AuthenticationManager" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.MiracleGamesSdk_XamlTypeInfo.XamlMetaDataProvider" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.BubbleManager" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.H5GameManager" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Bubble.BubbleExchanger" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Bubble.BubbleEventArgs" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Bubble.GoogleAdEventArgs" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.CertificationManager" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.ApplicationManager" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.SharingManager" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.PaymentManager" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.AdvertisingManager" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.FullScreenAdSettingOptions" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.CertificationResult" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.ThirdLoginInfo" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.ShareResult" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.SystemTime" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.AppConfig" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.ShareChannel" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.GoogleAdConfig" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.AssetsInfo" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.GoogleGameAdCommand" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.UniversalGoogleAdEventArgs" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.NewAccountInfo" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.CoupletAdSettingOptions" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.CacheUserData" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.Privacy" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.Advertisement" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.CommunityConfig" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.FormattedResult" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.SystemTimeInfo" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.GoodsPayChannel" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.Token" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.SimpleResult" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.GoogleGameAdSettingOptions" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.PayChannel" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.PayCommand" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.FullScreenInterstitialAdSettingOptions" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.BannerAdSettingOptions" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.SharingCommand" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.CommandObject" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.AdCommand" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.AdUnit" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.GoodsInfo" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.AppBasicInfo" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.Payment" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.GoogleContentAdCommand" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.ThirdLoginResult" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.ThirdLoginProvider" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.ShareConfig" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.Authentication" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.CommonResult" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.GoogleContentAdSettingOptions" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.CodeResult" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.CountryCode" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.BindingInfo" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.ErrorInfo" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.UniversalGoogleAdCommand" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.UserInfo" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.UseAssetResult" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.AdClickEventArgs" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.MsPayInfo" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.AssetsList" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.DigitalGoods" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.ComboUser" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.InterstitialAdSettingOptions" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.InitLanguageInfo" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.Promotion" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.AppInfo" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="MiracleGames.Models.AntiAddictionConfig" ThreadingModel="both" />
+      </InProcessServer>
+    </Extension>
+  </Extensions>
+  <build:Metadata>
+    <build:Item Name="TargetFrameworkMoniker" Value=".NETCore,Version=v5.0" />
+    <build:Item Name="VisualStudio" Version="15.0" />
+    <build:Item Name="VisualStudioEdition" Value="Microsoft Visual Studio Community 2017" />
+    <build:Item Name="OperatingSystem" Version="10.0.19041.1415 (WinBuild.160101.0800)" />
+    <build:Item Name="Microsoft.Build.AppxPackage.dll" Version="15.0.28307.1089" />
+    <build:Item Name="ProjectGUID" Value="{B89AF2FA-21E7-4FC9-B9DF-6E23CD7A5021}" />
+    <build:Item Name="ilc.exe" Version="1.7.27420.00 built by: PROJECTNGDR2" />
+    <build:Item Name="OptimizingToolset" Value="ilc.exe" />
+    <build:Item Name="UseDotNetNativeSharedAssemblyFrameworkPackage" Value="True" />
+    <build:Item Name="UniversalGenericsOptOut" Value="false" />
+    <build:Item Name="ShortcutGenericAnalysis" Value="false" />
+    <build:Item Name="Microsoft.Windows.UI.Xaml.Build.Tasks.dll" Version="15.0.28307.1082" />
+    <build:Item Name="MakePri.exe" Version="10.0.14393.795 (rs1_release_sec.170105-1850)" />
+  </build:Metadata>
+</Package>

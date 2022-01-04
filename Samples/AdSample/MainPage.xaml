@@ -1,0 +1,42 @@
+﻿<Page
+    x:Class="AdSample.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AdSample"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+  <Grid>
+    <StackPanel>
+      <StackPanel Orientation="Horizontal">
+        <Button Margin="10" Content="MGLogin" Click="{x:Bind MGLogin}"/>
+      </StackPanel>
+      <StackPanel Orientation="Horizontal">
+        <Button Margin="10" Content="Banner Ad(Without Close Button)" Click="{x:Bind ShowBannerAdWithClose}"/>
+      </StackPanel>
+      <StackPanel Orientation="Horizontal">
+        <Button Margin="10" Content="Interstitial Ad(With Close Button)" Click="{x:Bind ShowInterstitialAdWithClose}"/>
+      </StackPanel>
+      <StackPanel Orientation="Horizontal">
+        <Button Margin="10" Content="Couplet Ad(With Close Button)" Click="{x:Bind ShowCoupletAdWithClose}"/>
+      </StackPanel>
+      <StackPanel Orientation="Horizontal">
+        <Button Margin="10" Content="ShowFullScreenInterstitialAd" Click="{x:Bind ShowFullScreenInterstitialAd}"/>
+      </StackPanel>
+      <StackPanel Orientation="Horizontal">
+        <Button Margin="10" Content="ShowShareChannel" Click="{x:Bind ShowShareChannel}"/>
+      </StackPanel>
+      <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="下面的微软支付功能和微软商店评级功能，需要应用上传微软商店，并通过审核后才可使用。" FontSize="24" Margin="0" HorizontalAlignment="Left"/>
+      <StackPanel Orientation="Horizontal">
+        <Button Margin="10" Content="Microsoft payment" Click="{x:Bind ShowPayChannel}"/>
+      </StackPanel>
+      <StackPanel Orientation="Horizontal">
+        <Button Margin="10" Content="RatingReview" Click="{x:Bind RatingReview}"/>
+      </StackPanel>
+     
+
+    </StackPanel>
+  </Grid>
+</Page>

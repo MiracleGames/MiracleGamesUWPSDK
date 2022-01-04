@@ -1,0 +1,50 @@
+﻿<Page x:ConnectionId='1'
+    x:Class="MiracleGames.Controls.User.ThirdLoginPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MiracleGames.Controls.User"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ms-appx:/MiracleGames/Controls/Styles/Resource.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+
+    <Grid>
+        <Grid x:ConnectionId='2' Background="{StaticResource PlaceholderBackgroundColor}"                           />
+        <Viewbox x:ConnectionId='3'                                                                                      >
+            <Grid x:ConnectionId='4' HorizontalAlignment="Center" VerticalAlignment="Center"                                                                                >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Border Background="{StaticResource PrimaryColor}" BorderBrush="{StaticResource PrimaryColor}" BorderThickness="2" CornerRadius="10,10,0,0">
+                    <Grid>
+                        <Button x:ConnectionId='7' Style="{StaticResource GoBackButtonStyle}" Margin="10,0" HorizontalAlignment="Left"                          />
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Grid VerticalAlignment="Center" Margin="10">
+                                <Path Fill="{StaticResource LogoColor1}" Data="M30.58,26.28l-15.4,9.37V0l15.4,8.75z"/>
+                                <Path Fill="{StaticResource LogoColor2}" Data="M0,26.28l15.18,9.37V0L0,8.75z"/>
+                                <Path  Fill="White" Data="M9.78,9.15,6,26.93,4.29,26l-2-13.83V24.86L1,24.16V10.74L3.31,9.48l1.84,12.1h0L7.8,7l5.81-3.21V31.12L9.78,29ZM26.93,19.51l-1.84.29V16.74l3.41.12v6.57a1.67,1.67,0,0,1-.5,1.23,9.68,9.68,0,0,1-1.07.95A7.46,7.46,0,0,1,24.62,27c-4,1.41-7.54-.75-7.71-9.46.17-8.9,3.58-11.8,7.71-9.9,3.07,1.42,4,3.85,4,6.94l-1.68-.36c0-1.81-.59-3-1.9-3.47-2.23-.82-4.72,1.37-4.78,6.75S22.8,24.9,25,24.06a6.61,6.61,0,0,0,1.57-.79c.16-.15.23-.25.33-.34z"  />
+                            </Grid>
+                            <TextBlock Text="MIRACLE GAMES" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+                <Border Grid.Row="1" Background="{StaticResource BackgroundColor}" BorderBrush="{StaticResource PrimaryColor}" BorderThickness="2" CornerRadius="0,0,10,10" Padding="0,0,0,10">
+                    <Grid>
+                        <WebView x:ConnectionId='5'                                                                                                                                                                                              />
+                        <ProgressBar x:ConnectionId='6' IsIndeterminate="True" Foreground="{StaticResource PrimaryColor}" VerticalAlignment="Top"                                                                                                         />
+                    </Grid>
+                </Border>
+            </Grid>
+        </Viewbox>
+    </Grid>
+</Page>
+

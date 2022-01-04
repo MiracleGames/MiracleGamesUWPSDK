@@ -1,0 +1,542 @@
+﻿<Page x:ConnectionId='1'
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Class="MiracleGames.Controls.User.SignInPage"
+    xmlns:models="using:MiracleGames.Models"
+    xmlns:selector="using:MiracleGames.Utilities.Selector"
+    mc:Ignorable="d"
+    d:DesignWidth="500"
+    d:DesignHeight="420">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ms-appx:///MiracleGames/Controls/Styles/Resource.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate x:Key="ThirdLoginIconTemplate"                                   >
+                <Border x:ConnectionId='13' HorizontalAlignment="Stretch" Width="40" Height="40">
+                    <Image x:ConnectionId='14'                                     Stretch="Uniform" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                </Border>
+            </DataTemplate>
+            <DataTemplate x:Key="ThirdLoginPathTemplate"                                   >
+                <Border x:ConnectionId='11' HorizontalAlignment="Stretch" Width="40" Height="40">
+                    <Path x:ConnectionId='12'                                   Stretch="Uniform" HorizontalAlignment="Center" Fill="{StaticResource PrimaryColor}"/>
+                </Border>
+            </DataTemplate>
+            <selector:ThirdLoginDataTemplateSelector x:Key="ThirdLoginDataTemplateSelector" IconTemplate="{StaticResource ThirdLoginIconTemplate}" PathTemplate="{StaticResource ThirdLoginPathTemplate}"/>
+
+            <DataTemplate x:Key="CountryCodeOptionTemplate"                                >
+                <Grid x:ConnectionId='7'>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="4"/>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="4"/>
+                        <ColumnDefinition Width="250"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock x:ConnectionId='8'                      HorizontalAlignment="Left"/>
+                    <TextBlock x:ConnectionId='9'                             Grid.Column="2" HorizontalAlignment="Left"/>
+                    <TextBlock x:ConnectionId='10'                         Grid.Column="4" HorizontalAlignment="Left" TextTrimming="CharacterEllipsis"/>
+                </Grid>
+            </DataTemplate>
+            <DataTemplate x:Key="CountryCodeSelectedTemplate"                                >
+                <TextBlock x:ConnectionId='6'                            />
+            </DataTemplate>
+            <selector:CountryCodeItemTemplateSelector x:Key="CountryCodeItemTemplateSelector" OptionTemplate="{StaticResource CountryCodeOptionTemplate}" SelectedTemplate="{StaticResource CountryCodeSelectedTemplate}"/>
+
+            <DataTemplate x:Key="ComboUserDropdownTemplate"                              >
+                <Grid x:ConnectionId='3' Padding="10"                                                                                          >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock x:ConnectionId='4'                         VerticalAlignment="Center"/>
+                    <Button x:ConnectionId='5' Grid.Column="1" Visibility="Collapsed" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" Height="20" Style="{StaticResource DropdownCloseButtonStyle}"                          />
+                </Grid>
+            </DataTemplate>
+            <DataTemplate x:Key="ComboUserCompactTemplate"                              >
+                <TextBlock x:ConnectionId='2'                         VerticalAlignment="Center"/>
+            </DataTemplate>
+            <selector:ComboxBoxItemTemplateSelector x:Key="ComboxBoxItemTemplateSelector" DropdownTemplate="{StaticResource ComboUserDropdownTemplate}" CompactTemplate="{StaticResource ComboUserCompactTemplate}"/>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid Background="{StaticResource PlaceholderBackgroundColor}" RequestedTheme="Light">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:ConnectionId='15' x:Name="CommonStates">
+                <VisualStateGroup.Transitions>
+                    <VisualTransition From="HiddenState" To="VisibleState" GeneratedDuration="0:0:0.1"/>
+                </VisualStateGroup.Transitions>
+                <VisualState x:ConnectionId='16' x:Name="HiddenState"/>
+                <VisualState x:ConnectionId='17' x:Name="VisibleState">
+                    <Storyboard>
+                        <DoubleAnimation Storyboard.TargetName="ErrorTipsContainer" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" To="0" />
+                        <DoubleAnimation Storyboard.TargetName="ErrorTipsContainer" Storyboard.TargetProperty="Opacity" To="0.8" />
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <Viewbox MaxHeight="540" MaxWidth="500">
+            <Grid Width="500" MinHeight="420" MaxHeight="540" VerticalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Border Background="{StaticResource PrimaryColor}" BorderBrush="{StaticResource PrimaryColor}" BorderThickness="2" CornerRadius="10,10,0,0">
+                    <Grid>
+                        <Button x:ConnectionId='77' Style="{StaticResource GoBackButtonStyle}" Margin="10,0" HorizontalAlignment="Left"                                                                                                                                          />
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Grid VerticalAlignment="Center" Margin="10">
+                                <Path Fill="{StaticResource LogoColor1}" Data="M30.58,26.28l-15.4,9.37V0l15.4,8.75z"/>
+                                <Path Fill="{StaticResource LogoColor2}" Data="M0,26.28l15.18,9.37V0L0,8.75z"/>
+                                <Path  Fill="White" Data="M9.78,9.15,6,26.93,4.29,26l-2-13.83V24.86L1,24.16V10.74L3.31,9.48l1.84,12.1h0L7.8,7l5.81-3.21V31.12L9.78,29ZM26.93,19.51l-1.84.29V16.74l3.41.12v6.57a1.67,1.67,0,0,1-.5,1.23,9.68,9.68,0,0,1-1.07.95A7.46,7.46,0,0,1,24.62,27c-4,1.41-7.54-.75-7.71-9.46.17-8.9,3.58-11.8,7.71-9.9,3.07,1.42,4,3.85,4,6.94l-1.68-.36c0-1.81-.59-3-1.9-3.47-2.23-.82-4.72,1.37-4.78,6.75S22.8,24.9,25,24.06a6.61,6.61,0,0,0,1.57-.79c.16-.15.23-.25.33-.34z"  />
+                            </Grid>
+                            <TextBlock Text="MIRACLE GAMES" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+                <Border Background="{StaticResource BackgroundColor}" BorderBrush="{StaticResource PrimaryColor}" BorderThickness="2" CornerRadius="0,0,10,10" Grid.Row="1">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <StackPanel Orientation="Horizontal" Padding="10,0" HorizontalAlignment="Right" VerticalAlignment="Center">
+                            <Path Width="22" Stretch="Uniform" Fill="{StaticResource UniformColor}" Data="M909.989 343.281c-21.76-51.446-52.904-97.643-92.568-137.307-39.663-39.664-85.86-70.808-137.306-92.568-53.28-22.536-109.858-33.962-168.164-33.962S397.067 90.87 343.787 113.406c-51.446 21.76-97.643 52.904-137.307 92.568-39.664 39.664-70.808 85.86-92.568 137.307-22.536 53.28-33.962 109.858-33.962 168.164s11.426 114.884 33.962 168.164c21.76 51.445 52.904 97.643 92.568 137.306 39.664 39.664 85.86 70.809 137.307 92.568 53.28 22.535 109.858 33.962 168.164 33.962s114.884-11.427 168.164-33.962c51.445-21.76 97.643-52.904 137.306-92.568 39.664-39.663 70.809-85.86 92.568-137.306 22.535-53.28 33.962-109.858 33.962-168.164s-11.427-114.884-33.962-168.164zM543.951 376.03c17.57-0.243 35.095-0.683 52.536-1.368a1990.762 1990.762 0 0 0 91.131-5.678c10.157 34.378 16.643 71.314 19.389 110.46H543.951V376.03z m0-64.069V163.41c17.617 12.176 39.372 29.845 61.074 54.197 23.42 26.28 43.109 56.138 58.784 89.019-41.937 3.147-82.117 4.783-119.858 5.335z m-64-144.763v144.705a2038.572 2038.572 0 0 1-103.41-4.309 1929.6 1929.6 0 0 1-11.183-0.786c15.195-31.915 34.175-60.991 56.676-86.711 20.284-23.185 40.722-40.49 57.917-52.899zM370.842 371.354a2124.301 2124.301 0 0 0 109.109 4.606v103.484H322.25c2.742-39.079 9.208-75.96 19.335-110.285 9.453 0.776 19.21 1.512 29.257 2.195z m-112.731 108.09H145.342c3.916-45.757 16.208-89.778 36.139-130.276 20.257 3.578 52.836 8.759 95.407 13.641-9.902 36.699-16.182 75.682-18.777 116.635z m-0.859 64c1.975 39.144 9.712 78.242 23.101 116.799-44.093 4.976-77.797 10.319-98.621 13.992-20.08-40.64-32.458-84.841-36.39-130.792h111.91z m64.098 0h158.601v104.048c-36.37 0.602-72.818 2.13-109.109 4.601-8.41 0.573-16.612 1.182-24.609 1.821-14.322-36.523-22.659-73.543-24.883-110.47z m158.601 168.103v131.712c-16.974-15.877-36.574-35.962-56.038-59.735-18.064-22.064-33.892-44.698-47.379-67.668a2038.38 2038.38 0 0 1 103.417-4.309z m64 136.665V711.487c34.387 0.503 70.782 1.903 108.68 4.527-13.467 22.915-29.263 45.496-47.286 67.509-21.547 26.32-43.262 48.119-61.394 64.689z m52.536-199.426a2063.187 2063.187 0 0 0-52.536-1.384V543.444h163.958c-2.227 36.975-10.582 74.045-24.939 110.615a1994.972 1994.972 0 0 0-86.483-5.273z m175.521-105.342H878.56c-3.928 45.898-16.283 90.051-36.322 130.652a1822.84 1822.84 0 0 0-93.476-13.439c13.478-38.691 21.264-77.929 23.246-117.213z m-0.859-64c-2.605-41.111-8.924-80.238-18.891-117.061a1821.491 1821.491 0 0 0 90.233-13.075c19.89 40.46 32.158 84.432 36.07 130.136H771.149z m1.017-228.215a373.188 373.188 0 0 1 34.046 39.155 1772.853 1772.853 0 0 1-75.117 9.98c-19.529-46.785-45.825-88.91-78.291-125.338a423.863 423.863 0 0 0-5.386-5.927c46.185 18.263 88.573 45.955 124.748 82.13zM384.81 165.923a420.788 420.788 0 0 0-8.355 9.102c-32.552 36.525-58.904 78.775-78.449 125.71-32.357-3.484-59.48-7.244-80.226-10.469a373.386 373.386 0 0 1 33.956-39.037c38.338-38.338 83.654-67.152 133.074-85.306zM251.736 771.659a373.444 373.444 0 0 1-33.584-38.548c22.526-3.498 52.529-7.614 88.626-11.328 18.229 35.542 41.31 70.356 68.867 103.808a678.068 678.068 0 0 0 35.727 39.995c-59.757-16.875-114.524-48.814-159.636-93.927z m368.249 91.745a677.032 677.032 0 0 0 33.629-37.814c27.469-33.344 50.487-68.043 68.689-103.466a1780.315 1780.315 0 0 1 83.528 10.88 373.34 373.34 0 0 1-33.665 38.654c-43.23 43.232-95.324 74.373-152.181 91.746z"  UseLayoutRounding="False" />
+                            <ComboBox x:ConnectionId='75' Width="120" Margin="10,0,0,0"                                                                                                                                                                                    BorderThickness="0" Foreground="{StaticResource UniformColor}">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate                                   >
+                                        <TextBlock x:ConnectionId='76'                             />
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                        </StackPanel>
+                        <Border x:ConnectionId='18' x:Name="ErrorTipsContainer" Grid.Row="0" Grid.RowSpan="2"                                                                                                             Height="62" VerticalAlignment="Top" Background="{StaticResource TipsBackgroundColor}" BorderBrush="{StaticResource TipsBorderColor}" BorderThickness="1" Opacity="0.8">
+                            <Border.Clip>
+                                <RectangleGeometry Rect="0,0,500,62"/>
+                            </Border.Clip>
+                            <Border.RenderTransform>
+                                <CompositeTransform TranslateY="-62"/>
+                            </Border.RenderTransform>
+                            <Grid Padding="10,5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="30"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock x:ConnectionId='73'                                                  TextWrapping="Wrap" Foreground="{StaticResource TipsForegroundColor}" FontSize="16"/>
+                                <Button x:ConnectionId='74' Grid.Column="1" Style="{StaticResource CloseButtonStyle}" VerticalAlignment="Top" HorizontalAlignment="Right"                              />
+                            </Grid>
+                        </Border>
+                        <Pivot x:ConnectionId='19' Grid.Row="1" Style="{StaticResource PivotStyle}"                                                       >
+                            <!-- Normal SignIn -->
+                            <PivotItem>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <StackPanel>
+                                        <Border BorderBrush="{StaticResource SecondaryColor}" BorderThickness="0,0,0,1" Height="62">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="30"/>
+                                                    <ColumnDefinition/>
+                                                </Grid.ColumnDefinitions>
+                                                <Path HorizontalAlignment="Left" Width="25" Stretch="Uniform" StrokeThickness="2" Stroke="{StaticResource UniformColor}" Data="F1 M 38,19C 43.5417,19 45.9167,22.1667 45.1174,28.8134C 45.8315,29.2229 46.3125,29.9928 46.3125,30.875C 46.3125,31.9545 45.5923,32.8658 44.6061,33.1546C 44.1941,34.623 43.5543,35.9229 42.75,36.9628L 42.75,41.9583C 45.3889,42.4861 47.5,42.75 50.6667,44.3333C 53.8333,45.9167 54.8889,47.3681 57,49.4792L 57,57L 19,57L 19,49.4792C 21.1111,47.3681 22.1667,45.9167 25.3333,44.3333C 28.5,42.75 30.6111,42.4861 33.25,41.9583L 33.25,36.9628C 32.4457,35.9229 31.8059,34.623 31.3939,33.1546C 30.4077,32.8658 29.6875,31.9545 29.6875,30.875C 29.6875,29.9928 30.1685,29.2229 30.8826,28.8134C 30.0833,22.1667 32.4583,19 38,19 Z"/>
+                                                <TextBox x:ConnectionId='72' x:Uid="LoginAccountTextBox" Grid.Column="1"                                         PlaceholderText="用户名" Height="40" TabIndex="1" Style="{StaticResource CommonTextBoxStyle}"/>
+                                            </Grid>
+                                        </Border>
+                                        <Border BorderBrush="{StaticResource SecondaryColor}" BorderThickness="0,0,0,1" Height="62" Margin="0,10">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="30"/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Path HorizontalAlignment="Left" Width="25" Stretch="Uniform" StrokeThickness="2" Stroke="{StaticResource UniformColor}" Data="F1 M 22.17,36.4216L 25.3369,36.4216L 25.3369,31.6711C 25.3369,24.6745 31.0087,19.0027 38.0053,19.0027C 45.0019,19.0027 50.6737,24.6745 50.6737,31.6711L 50.6737,36.4216L 53.841,36.4216L 53.8411,57.008L 22.17,57.008L 22.17,36.4216 Z M 45.9231,31.6711C 45.9231,27.2982 42.3782,23.7533 38.0053,23.7533C 33.6324,23.7533 30.0875,27.2982 30.0875,31.6711L 30.0875,36.4216L 45.923,36.4216L 45.9231,31.6711 Z"/>
+                                                <Grid Grid.Column="1">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition/>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <PasswordBox x:ConnectionId='68' x:Uid="LoginPasswordBox"                                              PlaceholderText="密码" Height="40" TabIndex="2" Style="{StaticResource CommonPasswordBoxStyle}"                                                               />
+                                                    <Grid x:ConnectionId='69' Grid.Column="1" Padding="10" Background="Transparent"                                          >
+                                                        <Path x:ConnectionId='70'                                                                                                                     Width="20" Height="20" Stretch="Uniform" Fill="{StaticResource PrimaryColor}" Data="M912 512.1c0 10.1-3 20.4-8.9 30.8-41.7 68.5-97.7 123.3-168.1 164.5-70.4 41.2-144.7 61.8-223 61.8s-152.6-20.7-223-62.1S162.6 611 120.9 542.8c-5.9-10.4-8.9-20.7-8.9-30.8 0-10.1 3-20.4 8.9-30.8C162.6 413 218.6 358.3 289 316.9s144.7-62.1 223-62.1 152.6 20.7 223 62.1S861.4 413 903.1 481.2c5.9 10.5 8.9 20.8 8.9 30.9z m-57.1 0c-45.3-70.2-102-122.8-170.1-157.7 18.1 31 27.2 64.4 27.2 100.5 0 55-19.5 102.2-58.7 141.3-39.2 39.2-86.2 58.7-141.3 58.7-55 0-102.2-19.5-141.3-58.7C331.5 557.1 312 510 312 454.9c0-36 9.1-69.5 27.2-100.5C271 389.2 214.3 441.7 169.1 512c39.6 61 89.2 109.6 148.9 145.7 59.6 36.2 124.3 54.3 194 54.3s134.3-18.1 194-54.3c59.6-36 109.3-84.6 148.9-145.6zM527.2 355.8c4.1-4.1 6.3-9.2 6.3-15.2 0-5.9-2.1-11-6.3-15.2-4.1-4.1-9.2-6.3-15.2-6.3-37.2 0-69.1 13.3-95.8 40-26.7 26.7-40 58.6-40 95.8 0 5.9 2.1 11 6.3 15.2 4.1 4.1 9.2 6.3 15.2 6.3 5.9 0 11-2.1 15.2-6.3 4.1-4.1 6.3-9.2 6.3-15.2 0-25.6 9.1-47.5 27.2-65.6 18.1-18.1 40-27.2 65.6-27.2 5.9-0.1 11-2.1 15.2-6.3z"/>
+                                                        <Path x:ConnectionId='71'                                                                                                                                           Width="20" Height="20" Stretch="Uniform" Fill="{StaticResource PrimaryColor}" Data="M36.2,13.3c-0.4,0-0.7,0.2-1,0.4c-0.6,0.5-1.5,1.2-3.1,1.8c-3.1,1.3-7.5,2-12,2s-8.9-0.7-12-2c-1.6-0.6-2.6-1.3-3.1-1.8c-0.3-0.3-0.6-0.4-1-0.4c-1.3,0-1.9,1.6-1,2.5c2.8,2.7,9.5,4.6,17.2,4.6s14.3-1.9,17.2-4.6C38.1,14.8,37.5,13.3,36.2,13.3zM13.8,25.1l0.9-5.1c0.1-0.8,0.9-1.2,1.6-1.1c0.7,0.1,1.2,0.8,1.1,1.6l-0.9,5.1c-0.1,0.8-0.9,1.3-1.6,1.1C14.2,26.6,13.7,25.9,13.8,25.1z M23.8,25.6l-0.9-5.1c-0.1-0.8,0.4-1.5,1.1-1.6c0,0,0,0,0,0c0.8-0.1,1.5,0.4,1.6,1.1c0,0,0,0,0,0l0.9,5.1c0.1,0.8-0.4,1.5-1.2,1.6C24.7,26.8,24,26.3,23.8,25.6z M34.3,23l-3.6-3.6c-0.5-0.5-0.5-1.4,0-2c0.5-0.5,1.4-0.5,2,0l3.6,3.6c0.5,0.5,0.5,1.4,0,2C35.8,23.6,34.9,23.6,34.3,23z M4.1,21.1l3.6-3.6c0.5-0.5,1.4-0.5,2,0c0.5,0.5,0.5,1.4,0,2L6.1,23c-0.5,0.5-1.4,0.5-2,0C3.6,22.5,3.6,21.6,4.1,21.1z"/>
+                                                    </Grid>
+                                                </Grid>
+                                                <RichTextBlock Grid.Column="2" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" TextAlignment="Right">
+                                                    <Paragraph>
+                                                        <Hyperlink x:ConnectionId='67' Foreground="{StaticResource PrimaryColor}"                                       >
+                                                            <Run x:Uid="ForgetPasswordRun" Text="忘记密码?"/>
+                                                        </Hyperlink>
+                                                    </Paragraph>
+                                                </RichTextBlock>
+                                            </Grid>
+                                        </Border>
+                                    </StackPanel>
+                                    <Grid Grid.Row="1" Margin="0,10">
+                                        <Button x:ConnectionId='66' x:Uid="LoginButton" Content="登录" Style="{StaticResource PrimaryButtonStyle}"                            TabIndex="3"/>
+                                    </Grid>
+                                    <Grid Grid.Row="2" Margin="0,10">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <Button x:ConnectionId='64' x:Uid="GuestLoginButton" Content="游客登录" Style="{StaticResource SecondaryButtonStyle}" Margin="0,0,10,0" TabIndex="4"                                            />
+                                        <Button x:ConnectionId='65' x:Uid="RegisterButton" Content="账号注册" Style="{StaticResource SecondaryButtonStyle}" Margin="10,0,0,0" Grid.Column="1" TabIndex="5"                                        />
+                                    </Grid>
+                                    <Border x:ConnectionId='62' Grid.Row="3" Margin="0,10" Padding="0,10" BorderBrush="{StaticResource SecondaryColor}" BorderThickness="0,1,0,0"                                                                                                                 >
+                                        <StackPanel>
+                                            <TextBlock x:Uid="ThirdLoginTextBlock" Foreground="{StaticResource SecondaryColor}" Text="其他登录方式" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            <ListView x:ConnectionId='63' Margin="0,10,0,0"                                                    HorizontalAlignment="Center" ItemTemplate="{StaticResource ThirdLoginIconTemplate}" Style="{StaticResource ThirdLoginListViewStyle}" ItemContainerStyle="{StaticResource ThirdLoginListViewItemStyle}" IsItemClickEnabled="True"                                            />
+                                        </StackPanel>
+                                    </Border>
+                                </Grid>
+                            </PivotItem>
+                            <!-- History -->
+                            <PivotItem>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="65"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <StackPanel>
+                                        <Border BorderBrush="{StaticResource SecondaryColor}" BorderThickness="0,0,0,1" Height="62">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="30"/>
+                                                    <ColumnDefinition/>
+                                                </Grid.ColumnDefinitions>
+                                                <Path HorizontalAlignment="Left" Width="25" Stretch="Uniform" StrokeThickness="2" Stroke="{StaticResource UniformColor}" Data="F1 M 38,19C 43.5417,19 45.9167,22.1667 45.1174,28.8134C 45.8315,29.2229 46.3125,29.9928 46.3125,30.875C 46.3125,31.9545 45.5923,32.8658 44.6061,33.1546C 44.1941,34.623 43.5543,35.9229 42.75,36.9628L 42.75,41.9583C 45.3889,42.4861 47.5,42.75 50.6667,44.3333C 53.8333,45.9167 54.8889,47.3681 57,49.4792L 57,57L 19,57L 19,49.4792C 21.1111,47.3681 22.1667,45.9167 25.3333,44.3333C 28.5,42.75 30.6111,42.4861 33.25,41.9583L 33.25,36.9628C 32.4457,35.9229 31.8059,34.623 31.3939,33.1546C 30.4077,32.8658 29.6875,31.9545 29.6875,30.875C 29.6875,29.9928 30.1685,29.2229 30.8826,28.8134C 30.0833,22.1667 32.4583,19 38,19 Z"/>
+                                                <ComboBox x:ConnectionId='61' Grid.Column="1"                                                     HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="40" BorderThickness="0"
+                                                                                                                                                                            
+                                                          ItemTemplateSelector="{StaticResource ComboxBoxItemTemplateSelector}"
+                                                                                                               
+                                                          MaxDropDownHeight="300"/>
+                                            </Grid>
+                                        </Border>
+                                        <Border BorderBrush="{StaticResource SecondaryColor}" BorderThickness="0,0,0,1" Height="62" Margin="0,10">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="30"/>
+                                                    <ColumnDefinition/>
+                                                </Grid.ColumnDefinitions>
+                                                <Path HorizontalAlignment="Left" Width="25" Stretch="Uniform" StrokeThickness="2" Stroke="{StaticResource UniformColor}" Data="F1 M 22.17,36.4216L 25.3369,36.4216L 25.3369,31.6711C 25.3369,24.6745 31.0087,19.0027 38.0053,19.0027C 45.0019,19.0027 50.6737,24.6745 50.6737,31.6711L 50.6737,36.4216L 53.841,36.4216L 53.8411,57.008L 22.17,57.008L 22.17,36.4216 Z M 45.9231,31.6711C 45.9231,27.2982 42.3782,23.7533 38.0053,23.7533C 33.6324,23.7533 30.0875,27.2982 30.0875,31.6711L 30.0875,36.4216L 45.923,36.4216L 45.9231,31.6711 Z"/>
+                                                <Grid Grid.Column="1">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition/>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <PasswordBox x:ConnectionId='57'                                                           PlaceholderText="密码" Height="40" TabIndex="2" Style="{StaticResource CommonPasswordBoxStyle}"                                                          IsEnabled="False"/>
+                                                    <Grid x:ConnectionId='58' Grid.Column="1" Padding="10" Background="Transparent"                                    >
+                                                        <Path x:ConnectionId='59'                                                                                                               Width="20" Height="20" Stretch="Uniform" Fill="{StaticResource PrimaryColor}" Data="M912 512.1c0 10.1-3 20.4-8.9 30.8-41.7 68.5-97.7 123.3-168.1 164.5-70.4 41.2-144.7 61.8-223 61.8s-152.6-20.7-223-62.1S162.6 611 120.9 542.8c-5.9-10.4-8.9-20.7-8.9-30.8 0-10.1 3-20.4 8.9-30.8C162.6 413 218.6 358.3 289 316.9s144.7-62.1 223-62.1 152.6 20.7 223 62.1S861.4 413 903.1 481.2c5.9 10.5 8.9 20.8 8.9 30.9z m-57.1 0c-45.3-70.2-102-122.8-170.1-157.7 18.1 31 27.2 64.4 27.2 100.5 0 55-19.5 102.2-58.7 141.3-39.2 39.2-86.2 58.7-141.3 58.7-55 0-102.2-19.5-141.3-58.7C331.5 557.1 312 510 312 454.9c0-36 9.1-69.5 27.2-100.5C271 389.2 214.3 441.7 169.1 512c39.6 61 89.2 109.6 148.9 145.7 59.6 36.2 124.3 54.3 194 54.3s134.3-18.1 194-54.3c59.6-36 109.3-84.6 148.9-145.6zM527.2 355.8c4.1-4.1 6.3-9.2 6.3-15.2 0-5.9-2.1-11-6.3-15.2-4.1-4.1-9.2-6.3-15.2-6.3-37.2 0-69.1 13.3-95.8 40-26.7 26.7-40 58.6-40 95.8 0 5.9 2.1 11 6.3 15.2 4.1 4.1 9.2 6.3 15.2 6.3 5.9 0 11-2.1 15.2-6.3 4.1-4.1 6.3-9.2 6.3-15.2 0-25.6 9.1-47.5 27.2-65.6 18.1-18.1 40-27.2 65.6-27.2 5.9-0.1 11-2.1 15.2-6.3z"/>
+                                                        <Path x:ConnectionId='60'                                                                                                                                     Width="20" Height="20" Stretch="Uniform" Fill="{StaticResource PrimaryColor}" Data="M36.2,13.3c-0.4,0-0.7,0.2-1,0.4c-0.6,0.5-1.5,1.2-3.1,1.8c-3.1,1.3-7.5,2-12,2s-8.9-0.7-12-2c-1.6-0.6-2.6-1.3-3.1-1.8c-0.3-0.3-0.6-0.4-1-0.4c-1.3,0-1.9,1.6-1,2.5c2.8,2.7,9.5,4.6,17.2,4.6s14.3-1.9,17.2-4.6C38.1,14.8,37.5,13.3,36.2,13.3zM13.8,25.1l0.9-5.1c0.1-0.8,0.9-1.2,1.6-1.1c0.7,0.1,1.2,0.8,1.1,1.6l-0.9,5.1c-0.1,0.8-0.9,1.3-1.6,1.1C14.2,26.6,13.7,25.9,13.8,25.1z M23.8,25.6l-0.9-5.1c-0.1-0.8,0.4-1.5,1.1-1.6c0,0,0,0,0,0c0.8-0.1,1.5,0.4,1.6,1.1c0,0,0,0,0,0l0.9,5.1c0.1,0.8-0.4,1.5-1.2,1.6C24.7,26.8,24,26.3,23.8,25.6z M34.3,23l-3.6-3.6c-0.5-0.5-0.5-1.4,0-2c0.5-0.5,1.4-0.5,2,0l3.6,3.6c0.5,0.5,0.5,1.4,0,2C35.8,23.6,34.9,23.6,34.3,23z M4.1,21.1l3.6-3.6c0.5-0.5,1.4-0.5,2,0c0.5,0.5,0.5,1.4,0,2L6.1,23c-0.5,0.5-1.4,0.5-2,0C3.6,22.5,3.6,21.6,4.1,21.1z"/>
+                                                    </Grid>
+                                                </Grid>
+                                            </Grid>
+                                        </Border>
+                                    </StackPanel>
+                                    <Grid x:ConnectionId='50' Grid.Row="1"                                                                                                              >
+                                        <Border Background="{StaticResource TipsBackgroundColor}" BorderBrush="{StaticResource TipsBorderColor}" BorderThickness="1" Height="65">
+                                            <RichTextBlock Padding="10" TextWrapping="Wrap" Foreground="{StaticResource TipsForegroundColor}">
+                                                <Paragraph>
+                                                    <Run x:Uid="BindEmailTipsRun" Text="您的账号未"/>
+                                                    <Hyperlink x:ConnectionId='55' Foreground="{StaticResource PrimaryColor}"                                           >
+                                                        <Run x:Uid="BindEmailLinkRun" Text="绑定邮箱"/>
+                                                    </Hyperlink>
+                                                    <Run x:Uid="OrBindTipsRun" Text="或"/>
+                                                    <Hyperlink x:ConnectionId='56' Foreground="{StaticResource PrimaryColor}"                                            >
+                                                        <Run x:Uid="BindPhoneLinkRun" Text="绑定手机"/>
+                                                    </Hyperlink>
+                                                </Paragraph>
+                                            </RichTextBlock>
+                                        </Border>
+                                    </Grid>
+                                    <Grid Grid.Row="2" Margin="0,10">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <Button x:ConnectionId='53' x:Uid="SwitchAccountButton" Content="切换账号" Style="{StaticResource SecondaryButtonStyle}" Margin="0,0,10,0" TabIndex="4"                                             />
+                                        <Button x:ConnectionId='54' x:Uid="EnterGameButton" Content="进入游戏" Style="{StaticResource PrimaryButtonStyle}" Margin="10,0,0,0" Grid.Column="1" TabIndex="5"                                   />
+                                    </Grid>
+                                    <StackPanel x:ConnectionId='51' Grid.Row="3" Orientation="Horizontal"                                                                                                                    HorizontalAlignment="Right" VerticalAlignment="Center">
+                                        <Path Width="22" Stretch="Uniform" Fill="{StaticResource PrimaryColor}" Data="M527.36 102.4a424.96 424.96 0 1 0 424.96 424.96A424.96 424.96 0 0 0 527.36 102.4z m0 212.48a84.992 84.992 0 1 1-84.992 84.992 84.992 84.992 0 0 1 84.992-84.992z m194.56 424.96H332.288c-6.144 0-17.92-14.336-17.408-21.504a197.632 197.632 0 0 1 211.968-190.976c113.152 0 204.8 60.928 212.992 190.976a17.92 17.92 0 0 1-17.92 21.504z" UseLayoutRounding="False"/>
+                                        <HyperlinkButton x:ConnectionId='52' x:Uid="UserProfileLinkButton" Margin="10,0,0,0"  Content="个人中心" Foreground="{StaticResource PrimaryColor}"                                    />
+                                    </StackPanel>
+                                </Grid>
+                            </PivotItem>
+                            <!-- SignUp -->
+                            <PivotItem>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <StackPanel>
+                                        <Border BorderBrush="{StaticResource SecondaryColor}" BorderThickness="0,0,0,1" Height="62">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="30"/>
+                                                    <ColumnDefinition/>
+                                                </Grid.ColumnDefinitions>
+                                                <Path HorizontalAlignment="Left" Width="25" Stretch="Uniform" StrokeThickness="2" Stroke="{StaticResource UniformColor}" Data="F1 M 38,19C 43.5417,19 45.9167,22.1667 45.1174,28.8134C 45.8315,29.2229 46.3125,29.9928 46.3125,30.875C 46.3125,31.9545 45.5923,32.8658 44.6061,33.1546C 44.1941,34.623 43.5543,35.9229 42.75,36.9628L 42.75,41.9583C 45.3889,42.4861 47.5,42.75 50.6667,44.3333C 53.8333,45.9167 54.8889,47.3681 57,49.4792L 57,57L 19,57L 19,49.4792C 21.1111,47.3681 22.1667,45.9167 25.3333,44.3333C 28.5,42.75 30.6111,42.4861 33.25,41.9583L 33.25,36.9628C 32.4457,35.9229 31.8059,34.623 31.3939,33.1546C 30.4077,32.8658 29.6875,31.9545 29.6875,30.875C 29.6875,29.9928 30.1685,29.2229 30.8826,28.8134C 30.0833,22.1667 32.4583,19 38,19 Z"/>
+                                                <TextBox x:ConnectionId='49' x:Uid="SignUpAccountTextBox" Grid.Column="1"                                               PlaceholderText="用户名/邮箱" Height="40" TabIndex="1" Style="{StaticResource CommonTextBoxStyle}"/>
+                                            </Grid>
+                                        </Border>
+                                        <Border BorderBrush="{StaticResource SecondaryColor}" BorderThickness="0,0,0,1" Height="62" Margin="0,10">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="30"/>
+                                                    <ColumnDefinition/>
+                                                </Grid.ColumnDefinitions>
+                                                <Path HorizontalAlignment="Left" Width="25" Stretch="Uniform" StrokeThickness="2" Stroke="{StaticResource UniformColor}" Data="F1 M 22.17,36.4216L 25.3369,36.4216L 25.3369,31.6711C 25.3369,24.6745 31.0087,19.0027 38.0053,19.0027C 45.0019,19.0027 50.6737,24.6745 50.6737,31.6711L 50.6737,36.4216L 53.841,36.4216L 53.8411,57.008L 22.17,57.008L 22.17,36.4216 Z M 45.9231,31.6711C 45.9231,27.2982 42.3782,23.7533 38.0053,23.7533C 33.6324,23.7533 30.0875,27.2982 30.0875,31.6711L 30.0875,36.4216L 45.923,36.4216L 45.9231,31.6711 Z"/>
+                                                <TextBox x:ConnectionId='48' x:Uid="SignUpPasswordTextBox" Grid.Column="1"                                                PlaceholderText="密码" Height="40" TabIndex="1" Style="{StaticResource CommonTextBoxStyle}"/>
+                                            </Grid>
+                                        </Border>
+                                    </StackPanel>
+                                    <Grid Grid.Row="1" Margin="0,10">
+                                        <Button x:ConnectionId='47' x:Uid="SignUpAndLoginButton" Content="注册&amp;登录" Style="{StaticResource PrimaryButtonStyle}"                            TabIndex="3"/>
+                                    </Grid>
+                                    <Grid Grid.Row="2" Margin="0,10">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <Button x:ConnectionId='45' x:Uid="GuestLoginButton" Content="游客登录" Style="{StaticResource SecondaryButtonStyle}" Margin="0,0,10,0" TabIndex="4"                                            />
+                                        <Button x:ConnectionId='46' x:Uid="NormalLoginButton" Content="账号登录" Style="{StaticResource SecondaryButtonStyle}" Margin="10,0,0,0" Grid.Column="1" TabIndex="5"                                             />
+                                    </Grid>
+                                    <Border x:ConnectionId='42' Grid.Row="3" Padding="0,10" BorderBrush="{StaticResource SecondaryColor}" BorderThickness="0,1,0,0"                                                                                                                 >
+                                        <StackPanel>
+                                            <TextBlock x:Uid="ThirdLoginTextBlock" Foreground="{StaticResource SecondaryColor}" Text="其他登录方式" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            <ListView x:ConnectionId='44' Margin="0,10,0,0"                                                    HorizontalAlignment="Center" ItemTemplate="{StaticResource ThirdLoginIconTemplate}" Style="{StaticResource ThirdLoginListViewStyle}" ItemContainerStyle="{StaticResource ThirdLoginListViewItemStyle}" IsItemClickEnabled="True"                                            />
+                                        </StackPanel>
+                                    </Border>
+                                    <Grid Grid.Row="4" Margin="0,0,0,20">
+                                        <CheckBox IsChecked="True" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                            <CheckBox.Content>
+                                                <RichTextBlock TextWrapping="Wrap" FontSize="14" VerticalAlignment="Center">
+                                                    <Paragraph>
+                                                        <Run x:Uid="SignUpAgreementTipsRun" Foreground="{StaticResource SecondaryColor}" Text="点击注册&amp;登录即表示您同意"/>
+                                                        <Hyperlink x:ConnectionId='43' Foreground="{StaticResource UniformColor}"                                  >
+                                                            <Run x:Uid="SignUpAgreementLinkRun" Text="服务条款" />
+                                                        </Hyperlink>
+                                                    </Paragraph>
+                                                </RichTextBlock>
+                                            </CheckBox.Content>
+                                        </CheckBox>
+                                    </Grid>
+                                </Grid>
+                            </PivotItem>
+                            <!-- Guest SignUp & SignIn -->
+                            <PivotItem>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <StackPanel>
+                                        <Border BorderBrush="{StaticResource SecondaryColor}" BorderThickness="0,0,0,1" Height="62">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="20"/>
+                                                    <ColumnDefinition/>
+                                                </Grid.ColumnDefinitions>
+                                                <TextBlock x:Uid="GuestAccountTextBlock" Text="游客账号" Foreground="{StaticResource UniformColor}" FontSize="16" VerticalAlignment="Center"/>
+                                                <TextBlock Grid.Column="1" Text="|" Foreground="{StaticResource UniformColor}" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                                <TextBlock x:ConnectionId='41' Grid.Column="2"                                              Foreground="{StaticResource UniformColor}" FontSize="16" VerticalAlignment="Center"/>
+                                            </Grid>
+                                        </Border>
+                                        <Border BorderBrush="{StaticResource SecondaryColor}" BorderThickness="0,0,0,1" Height="62" Margin="0,10">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="20"/>
+                                                    <ColumnDefinition/>
+                                                </Grid.ColumnDefinitions>
+                                                <TextBlock x:Uid="GuestPasswordTextBlock" Text="游客密码" Foreground="{StaticResource UniformColor}" FontSize="16" VerticalAlignment="Center"/>
+                                                <TextBlock Grid.Column="1" Text="|" Foreground="{StaticResource UniformColor}" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                                <TextBlock x:ConnectionId='40' Grid.Column="2"                                               Foreground="{StaticResource UniformColor}" FontSize="16" VerticalAlignment="Center"/>
+                                            </Grid>
+                                        </Border>
+                                    </StackPanel>
+                                    <Grid Grid.Row="1">
+                                        <CheckBox IsChecked="True" VerticalAlignment="Center">
+                                            <CheckBox.Content>
+                                                <RichTextBlock TextWrapping="Wrap" FontSize="16">
+                                                    <Paragraph>
+                                                        <Run x:Uid="SignUpAgreementTipsRun" Text="我已阅读并同意"/>
+                                                        <Hyperlink x:ConnectionId='39' Foreground="{StaticResource UniformColor}"                                  >
+                                                            <Run x:Uid="SignUpAgreementLinkRun" Text="服务条款"/>
+                                                        </Hyperlink>
+                                                    </Paragraph>
+                                                </RichTextBlock>
+                                            </CheckBox.Content>
+                                        </CheckBox>
+                                    </Grid>
+                                    <Grid Grid.Row="2" Margin="0,10">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <Button x:ConnectionId='37' x:Uid="GoBackToLoginButton" Content="返回注册" Style="{StaticResource SecondaryButtonStyle}" Margin="0,0,10,0" TabIndex="4"                                        />
+                                        <Button x:ConnectionId='38' x:Uid="GuestLoginButton" Content="游客登录" Style="{StaticResource PrimaryButtonStyle}" Margin="10,0,0,0" Grid.Column="1" TabIndex="5"                               />
+                                    </Grid>
+                                </Grid>
+                            </PivotItem>
+                            <!-- Binding Email -->
+                            <PivotItem>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <StackPanel>
+                                        <Border BorderBrush="{StaticResource SecondaryColor}" BorderThickness="0,0,0,1" Height="62">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="30"/>
+                                                    <ColumnDefinition/>
+                                                </Grid.ColumnDefinitions>
+                                                <Path Grid.Column="0" Visibility="Collapsed" HorizontalAlignment="Left" Width="22" Stretch="Uniform" Data="M16,18H7V4H16M11.5,22A1.5,1.5 0 0,1 10,20.5A1.5,1.5 0 0,1 11.5,19A1.5,1.5 0 0,1 13,20.5A1.5,1.5 0 0,1 11.5,22M15.5,1H7.5A2.5,2.5 0 0,0 5,3.5V20.5A2.5,2.5 0 0,0 7.5,23H15.5A2.5,2.5 0 0,0 18,20.5V3.5A2.5,2.5 0 0,0 15.5,1z" Stroke="{StaticResource UniformColor}" UseLayoutRounding="False"/>
+                                                <Path Grid.Column="0" HorizontalAlignment="Left" Width="25" Stretch="Uniform" Data="M20,8L12,13L4,8V6L12,11L20,6M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4z" Stroke="{StaticResource UniformColor}" UseLayoutRounding="False"/>
+                                                <TextBox x:ConnectionId='36' x:Uid="BindEmailTextBox" Grid.Column="1"                                                PlaceholderText="绑定邮箱" Height="40" TabIndex="1" Style="{StaticResource CommonTextBoxStyle}"/>
+                                            </Grid>
+                                        </Border>
+                                        <Border BorderBrush="{StaticResource SecondaryColor}" BorderThickness="0,0,0,1" Height="62" Margin="0,10">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="30"/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition Width="97"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Path HorizontalAlignment="Left" Width="25" Stretch="Uniform" Data="F1 M 22.17,36.4216L 25.3369,36.4216L 25.3369,31.6711C 25.3369,24.6745 31.0087,19.0027 38.0053,19.0027C 45.0019,19.0027 50.6737,24.6745 50.6737,31.6711L 50.6737,36.4216L 53.841,36.4216L 53.8411,57.008L 22.17,57.008L 22.17,36.4216 Z M 45.9231,31.6711C 45.9231,27.2982 42.3782,23.7533 38.0053,23.7533C 33.6324,23.7533 30.0875,27.2982 30.0875,31.6711L 30.0875,36.4216L 45.923,36.4216L 45.9231,31.6711z" Stroke="{StaticResource UniformColor}" UseLayoutRounding="False"/>
+                                                <TextBox x:ConnectionId='34' x:Uid="ValidationCodeTextBox" Grid.Column="1"                                                     PlaceholderText="验证码" Height="40" TabIndex="1" Style="{StaticResource CommonTextBoxStyle}"/>
+                                                <Button x:ConnectionId='35' x:Uid="GetCodeButton" Grid.Column="2" MinWidth="97"                                                                                                                  HorizontalAlignment="Right" Style="{StaticResource PrimaryButtonStyle}" Height="31"                                     />
+                                            </Grid>
+                                        </Border>
+                                    </StackPanel>
+                                    <Grid Grid.Row="1" Margin="0,10">
+                                        <Button x:ConnectionId='33' x:Uid="BindAndLoginButton" Content="绑定&amp;登录" Style="{StaticResource PrimaryButtonStyle}"                               TabIndex="3"/>
+                                    </Grid>
+                                </Grid>
+                            </PivotItem>
+                            <!-- Binding Mobile -->
+                            <PivotItem>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <StackPanel>
+                                        <Border BorderBrush="{StaticResource SecondaryColor}" BorderThickness="0,0,0,1" Height="62">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="30"/>
+                                                    <ColumnDefinition Width="120"/>
+                                                    <ColumnDefinition/>
+                                                </Grid.ColumnDefinitions>
+                                                <Path Grid.Column="0" HorizontalAlignment="Left" Width="22" Stretch="Uniform" Data="M16,18H7V4H16M11.5,22A1.5,1.5 0 0,1 10,20.5A1.5,1.5 0 0,1 11.5,19A1.5,1.5 0 0,1 13,20.5A1.5,1.5 0 0,1 11.5,22M15.5,1H7.5A2.5,2.5 0 0,0 5,3.5V20.5A2.5,2.5 0 0,0 7.5,23H15.5A2.5,2.5 0 0,0 18,20.5V3.5A2.5,2.5 0 0,0 15.5,1Z" Stroke="{StaticResource UniformColor}" UseLayoutRounding="False"/>
+                                                <ComboBox x:ConnectionId='31' Grid.Column="1" VerticalAlignment="Center" Margin="10,0"                                                                                                                                                                                   ItemTemplateSelector="{StaticResource CountryCodeItemTemplateSelector}" BorderThickness="0" Foreground="{StaticResource UniformColor}"/>
+                                                <TextBox x:ConnectionId='32' x:Uid="BindMobileTextBox" Grid.Column="2"                                                PlaceholderText="手机号" Height="40" TabIndex="1" Style="{StaticResource CommonTextBoxStyle}"/>
+                                            </Grid>
+                                        </Border>
+                                        <Border BorderBrush="{StaticResource SecondaryColor}" BorderThickness="0,0,0,1" Height="62" Margin="0,10">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="30"/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition Width="97"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Path HorizontalAlignment="Left" Width="25" Stretch="Uniform" Data="F1 M 22.17,36.4216L 25.3369,36.4216L 25.3369,31.6711C 25.3369,24.6745 31.0087,19.0027 38.0053,19.0027C 45.0019,19.0027 50.6737,24.6745 50.6737,31.6711L 50.6737,36.4216L 53.841,36.4216L 53.8411,57.008L 22.17,57.008L 22.17,36.4216 Z M 45.9231,31.6711C 45.9231,27.2982 42.3782,23.7533 38.0053,23.7533C 33.6324,23.7533 30.0875,27.2982 30.0875,31.6711L 30.0875,36.4216L 45.923,36.4216L 45.9231,31.6711z" Stroke="{StaticResource UniformColor}" UseLayoutRounding="False"/>
+                                                <TextBox x:ConnectionId='29' x:Uid="ValidationCodeTextBox" Grid.Column="1"                                                      PlaceholderText="验证码" Height="40" TabIndex="1" Style="{StaticResource CommonTextBoxStyle}"/>
+                                                <Button x:ConnectionId='30' x:Uid="GetCodeButton" Grid.Column="2" MinWidth="97"                                                                                                                    HorizontalAlignment="Right" Style="{StaticResource PrimaryButtonStyle}" Height="31"                                     />
+                                            </Grid>
+                                        </Border>
+                                    </StackPanel>
+                                    <Grid Grid.Row="1" Margin="0,10">
+                                        <Button x:ConnectionId='28' x:Uid="BindAndLoginButton" Content="绑定&amp;登录" Style="{StaticResource PrimaryButtonStyle}"                                TabIndex="3"/>
+                                    </Grid>
+                                </Grid>
+                            </PivotItem>
+                            <!-- Mobile SignIn -->
+                            <PivotItem>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <StackPanel>
+                                        <Border BorderBrush="{StaticResource SecondaryColor}" BorderThickness="0,0,0,1" Height="62">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="30"/>
+                                                    <ColumnDefinition Width="120"/>
+                                                    <ColumnDefinition/>
+                                                </Grid.ColumnDefinitions>
+                                                <Path Grid.Column="0" HorizontalAlignment="Left" Width="22" Stretch="Uniform" Data="M16,18H7V4H16M11.5,22A1.5,1.5 0 0,1 10,20.5A1.5,1.5 0 0,1 11.5,19A1.5,1.5 0 0,1 13,20.5A1.5,1.5 0 0,1 11.5,22M15.5,1H7.5A2.5,2.5 0 0,0 5,3.5V20.5A2.5,2.5 0 0,0 7.5,23H15.5A2.5,2.5 0 0,0 18,20.5V3.5A2.5,2.5 0 0,0 15.5,1Z" Stroke="{StaticResource UniformColor}" UseLayoutRounding="False"/>
+                                                <ComboBox x:ConnectionId='26' Grid.Column="1" VerticalAlignment="Center" Margin="10,0"                                                                                                                                                                                   ItemTemplateSelector="{StaticResource CountryCodeItemTemplateSelector}" BorderThickness="0" Foreground="{StaticResource UniformColor}"/>
+                                                <TextBox x:ConnectionId='27' x:Uid="SignInMobileTextBox" Grid.Column="2"                                             PlaceholderText="手机号" Height="40" TabIndex="1" Style="{StaticResource CommonTextBoxStyle}"/>
+                                            </Grid>
+                                        </Border>
+                                        <Border BorderBrush="{StaticResource SecondaryColor}" BorderThickness="0,0,0,1" Height="62" Margin="0,10">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="30"/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition Width="97"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Path HorizontalAlignment="Left" Width="25" Stretch="Uniform" Data="F1 M 22.17,36.4216L 25.3369,36.4216L 25.3369,31.6711C 25.3369,24.6745 31.0087,19.0027 38.0053,19.0027C 45.0019,19.0027 50.6737,24.6745 50.6737,31.6711L 50.6737,36.4216L 53.841,36.4216L 53.8411,57.008L 22.17,57.008L 22.17,36.4216 Z M 45.9231,31.6711C 45.9231,27.2982 42.3782,23.7533 38.0053,23.7533C 33.6324,23.7533 30.0875,27.2982 30.0875,31.6711L 30.0875,36.4216L 45.923,36.4216L 45.9231,31.6711z" Stroke="{StaticResource UniformColor}" UseLayoutRounding="False"/>
+                                                <TextBox x:ConnectionId='24' x:Uid="ValidationCodeTextBox" Grid.Column="1"                                                           PlaceholderText="验证码" Height="40" TabIndex="2" Style="{StaticResource CommonTextBoxStyle}"/>
+                                                <Button x:ConnectionId='25' x:Uid="GetCodeButton" Grid.Column="2" MinWidth="97"                                                                                                                              HorizontalAlignment="Right" Style="{StaticResource PrimaryButtonStyle}" Height="31"                                         TabIndex="3"/>
+                                            </Grid>
+                                        </Border>
+                                    </StackPanel>
+                                    <Grid Grid.Row="1" Margin="0,10">
+                                        <Button x:ConnectionId='23' x:Uid="LoginButton" Content="登录" Style="{StaticResource PrimaryButtonStyle}"                                 TabIndex="3"/>
+                                    </Grid>
+                                    <Grid Grid.Row="2">
+                                        <CheckBox IsChecked="True" VerticalAlignment="Center">
+                                            <CheckBox.Content>
+                                                <RichTextBlock Foreground="{StaticResource SecondaryColor}" TextWrapping="Wrap" FontSize="14" VerticalAlignment="Center">
+                                                    <Paragraph>
+                                                        <Run x:Uid="SignUpAgreementTipsRun" Text="点击注册&amp;登录即表示您同意"/>
+                                                        <Hyperlink x:ConnectionId='22' Foreground="{StaticResource UniformColor}"                                  >
+                                                            <Run x:Uid="SignUpAgreementLinkRun" Text="服务条款" />
+                                                        </Hyperlink>
+                                                    </Paragraph>
+                                                </RichTextBlock>
+                                            </CheckBox.Content>
+                                        </CheckBox>
+                                    </Grid>
+                                </Grid>
+                            </PivotItem>
+                        </Pivot>
+                        <ProgressBar x:ConnectionId='20' Grid.Row="0"                                                                                                          IsIndeterminate="True" VerticalAlignment="Top" Foreground="{StaticResource PrimaryColor}"/>
+                        <TextBlock x:ConnectionId='21' Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="6"                                                   Foreground="Gray" FontSize="10"/>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Viewbox>
+    </Grid>
+</Page>
+

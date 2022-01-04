@@ -1,0 +1,7 @@
+/In:"D:\MGSDK\UWPSDK\SDK1111\MGSDK-master\Samples\AdSample\obj\x64\Release\ilc\in"
+/Lib:"D:\MGSDK\UWPSDK\SDK1111\MGSDK-master\Samples\AdSample\obj\x64\Release\ilc\in"
+/Lib:"C:\Users\LLX\.nuget\packages\microsoft.net.native.compiler\1.7.6\tools\x64\ilc\lib\Private"
+/WinMD:"D:\MGSDK\UWPSDK\SDK1111\MGSDK-master\Samples\AdSample\obj\x64\Release\ilc\in\WinMetadata\Windows.winmd"
+/VSTelemetrySessionSettings:"{"IsOptedIn":true,"HostName":"Dev14","AppInsightsInstrumentationKey":"f144292e-e3b2-4011-ac90-20e5c03fbce5","AsimovInstrumentationKey":"AIF-312cbd79-9dbb-4c48-a7da-3cc2a931cb70","AppId":1001,"UserId":"c043c811-e3c5-40ee-af25-3757149f99a2","Id":"b2b11ea4-c3bd-46db-a21c-f2113942adc5","ProcessStartTime":637768737379592223}"
+/RdXmlPath:"C:\Users\LLX\.nuget\packages\microsoft.net.native.compiler\1.7.6\tools\LibraryXML"
+/RunOnlyPreDR

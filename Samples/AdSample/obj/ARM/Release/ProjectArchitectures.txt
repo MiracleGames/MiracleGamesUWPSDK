@@ -1,0 +1,1 @@
+D:\MGSDK\UWPSDK\SDK1111\MGSDK-master\Samples\AdSample\AdSample.csproj;arm

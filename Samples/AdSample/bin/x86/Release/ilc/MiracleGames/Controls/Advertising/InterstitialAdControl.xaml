@@ -1,0 +1,56 @@
+﻿<UserControl x:ConnectionId='1'
+    x:Class="MiracleGames.Controls.Advertising.InterstitialAdControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:MiracleGames.Models"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ms-appx:///MiracleGames/Controls/Styles/Resource.xaml"/>
+                <ResourceDictionary Source="ms-appx:///MiracleGames/Controls/Styles/AdResource.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid x:ConnectionId='2' x:Name="LayoutRoot">
+        <Viewbox VerticalAlignment="Center" HorizontalAlignment="Center" MaxHeight="640" MaxWidth="640">
+            <Grid Width="640" Height="640" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Black">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.RowSpan="2" Grid.ColumnSpan="2">
+                    <FlipView x:ConnectionId='5'                                                                                                      Style="{StaticResource FlipViewStyle}"                                                                                                                                     >
+                        <FlipView.ItemTemplate>
+                            <DataTemplate                                             >
+                                <Grid x:ConnectionId='7'>
+                                    <Image x:ConnectionId='8'                          Stretch="UniformToFill"                          />
+                                </Grid>
+                            </DataTemplate>
+                        </FlipView.ItemTemplate>
+                    </FlipView>
+                    <MediaPlayerElement x:ConnectionId='6'                                                       AutoPlay="True"                                                                                                                                              />
+                </Grid>
+                <Grid Grid.Row="0" Grid.Column="1" Margin="0,1,1,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:ConnectionId='3' x:Uid="AdProviderButton" VerticalAlignment="Top" Style="{StaticResource RightInfoButtonStyle}" Content="MG Ads"                                 />
+                    <Button x:ConnectionId='4' Width="20" VerticalAlignment="Top" Grid.Column="1" Margin="1,0,0,0" Style="{StaticResource CloseButtonStyle}" Content="X"                                                                                                                                            />
+                </Grid>
+            </Grid>
+        </Viewbox>
+    </Grid>
+</UserControl>
+

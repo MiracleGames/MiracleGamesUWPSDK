@@ -1,0 +1,2 @@
+MainPackage=D:\MGSDK\UWPSDK\SDK1111\MGSDK-master\Samples\AdSample\bin\x64\Release\Upload\AdSample_1.0.2.0_x64.appx
+SymbolPackage=D:\MGSDK\UWPSDK\SDK1111\MGSDK-master\Samples\AdSample\bin\x64\Release\Upload\AdSample_1.0.2.0\AdSample_1.0.2.0_x64.appxsym
