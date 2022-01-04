@@ -1,4 +1,4 @@
-[![](https://github.com/MiracleGames/MiracleGamesUWPSDK/blob/main/MGLogo.png)](https://www.mguwp.net/index.html)
+[![](https://github.com/MiracleGames/MiracleGamesUWPSDK/blob/master/MGLogo.png)](https://www.mguwp.net/index.html)
 # MiracleGamesSDK
 为UWP开发者提供一站式服务的解决方案!
 ## Overview
