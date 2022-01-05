@@ -22,4 +22,4 @@
 - Visual Studio 2015及以上版本
 ### 引用MGSDK
  通过Nuget包的引用方式将MiracleGames.Sdk.Uwp.1.0.0.nupkg文件引入示例工程中。
- (https://github.com/MiracleGames/MiracleGamesUWPSDK/blob/master/uwpvs2.png)
+[![](https://github.com/MiracleGames/MiracleGamesUWPSDK/blob/master/uwpvs2.png)]()
