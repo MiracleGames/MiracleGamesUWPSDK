@@ -3,9 +3,10 @@
 为UWP开发者提供一站式服务的解决方案!
 ## Overview
  * Miracle Games SDK（简称：MG SDK）随着微软Windows 10系统发布后应运而生，始终以服务开发者为使命，SDK中充分使用了微软所提供的各项支持与服务，并结合自主研发的登录、社区、广告、分享等功能，为开发者登陆微软生态提供良好的基础。
- * MG SDK基于UWP开发，预留了C++、C#、JS等语言的功能接口，让开发者可以在多种开发环境中使用MG SDK，快速移植到Windows 10 UWP版本。
+ * MG SDK基于UWP开发，预留了C++、C#、JS等语言的功能接口，让开发者可以在多种开发环境中使用MG SDK，针对不同引擎不同终端研发的应用，我们提供开发者将安卓、iOS、H5、Web、Win32等应用程序快捷移植Win10 UWP版本对应的解决方案，并免费提供技术支持服务。
  * 经过多年Windows10 UWP应用开发技术沉淀和对接经验，MG SDK中的各种功能运作已经变的高效且稳定，并且在对接过程中总结出了一套专属于MG SDK的接入流程，能够让合作的开发者更加便捷的在应用或游戏中使用MG SDK，将其轻松的发布到微软应用商店。
  * MG汇聚了大量的技术专家成员打造了UWP开发者社区，免费为UWP开发者提供技术支持服务及技术培训，让更多的开发者加入到微软生态，为微软生态建设添砖加瓦。
+
 ## 声明
 1. 本程序为MGSDK功能演示工程，仅用作学习交流使用，禁止用于商业用途。
 ## MGSDK现有功能
@@ -21,5 +22,8 @@
 - win10SDK 14393及以上版本
 - Visual Studio 2015及以上版本
 ### 引用MGSDK
- 通过Nuget包的引用方式将MiracleGames.Sdk.Uwp.1.0.0.nupkg文件引入示例工程中。
+ 通过Nuget包的引用方式将MiracleGames.Sdk.Uwp.1.0.0.nupkg文件引入示例工程中.
+ SDK引用完成后即可运行示例工程,工程中演示了如何在UWP项目中接入MGSDK的各种功能.
 [![](https://github.com/MiracleGames/MiracleGamesUWPSDK/blob/master/uwpvs2.png)]()
+## 安装已上线的示例应用
+在浏览器中打开链接	https://www.microsoft.com/store/apps/9N3GWKK61FL5 跳转微软商店后下载应用
