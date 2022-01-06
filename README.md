@@ -37,7 +37,8 @@ Public Mainpage（）
     This.InitializeComponent（）;
     Load + =（sender，args）=>
     {      
-          var result = await MiracleGames.ApplicationManager.SetupAsync("YOUR_APP_KEY");                  if (!result.ReturnValue)
+          var result = await MiracleGames.ApplicationManager.SetupAsync("YOUR_APP_KEY");      
+          if (!result.ReturnValue)
              return;
    };
 }
