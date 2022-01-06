@@ -27,3 +27,4 @@ SDK引用完成后即可运行示例工程,工程中演示了如何在UWP项目�
 [![](https://github.com/MiracleGames/MiracleGamesUWPSDK/blob/master/images/uwpvs2.png)]()
 ## 安装已上线的示例应用
 在浏览器中打开链接	https://www.microsoft.com/store/apps/9N3GWKK61FL5 跳转微软商店后下载应用
+## MGSDK功能调用代码示例（C#）
