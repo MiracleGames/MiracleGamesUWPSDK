@@ -102,3 +102,44 @@ public MainPage()
     };
 }
 ```
+### 分享
+MG SDK中的分享接口，直接在工程中实现方法并调用即可。
+该功能的回调接口中，可以获得用户的分享结果通知。
+```C#
+public async void ShowShareChannel()
+{
+	if (!MiracleGames.ApplicationManager.SetupCompletedSuccessfully)
+	{
+		return;
+	}	 
+	var sharingCommand = new MiracleGames.Models.SharingCommand
+	{
+		Title = "MyTitle",
+		Content = "MyContent",
+		LinkUrl = "http://www.mguwp.com"
+	};
+	var result = await    MiracleGames.SharingManager.OpenSharingChannelAsync(sharingCommand);
+	if (result.ReturnValue)
+	{
+	  //Share finished
+	}
+}
+```
+### 评级
+接入MG SDK后，通过调用MG SDK中提供的接口实现微软评级功能，
+并在该方法的回调接口中获得评级操作的返回信息。
+```C#
+public async void isRatingReview()
+{
+	if (!MiracleGames.ApplicationManager.SetupCompletedSuccessfully)
+	{
+		return;
+	}
+	var result = await MiracleGames.ApplicationManager.IsRatingReviewedAsync();
+	if (result.ReturnValue)
+	{
+		result.ReturnValue==true: //got favourable comment from the user
+		result.ReturnValue==false:
+	}
+}
+```
