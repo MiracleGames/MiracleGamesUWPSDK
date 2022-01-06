@@ -1,4 +1,4 @@
-[![](https://github.com/MiracleGames/MiracleGamesUWPSDK/blob/master/MGLogo.png)](https://www.mguwp.net/index.html)
+[![](https://github.com/MiracleGames/MiracleGamesUWPSDK/blob/master/images/MGLogo.png)](https://www.mguwp.net/index.html)
 # MiracleGamesSDK
 为UWP开发者提供一站式服务的解决方案!
 ## Overview
@@ -24,6 +24,6 @@
 ### 引用MGSDK
  通过Nuget包的引用方式将MGSDKFile文件夹中的SDK文件引入示例工程中.
 SDK引用完成后即可运行示例工程,工程中演示了如何在UWP项目中接入MGSDK的各种功能.
-[![](https://github.com/MiracleGames/MiracleGamesUWPSDK/blob/master/uwpvs2.png)]()
+[![](https://github.com/MiracleGames/MiracleGamesUWPSDK/blob/master/images/uwpvs2.png)]()
 ## 安装已上线的示例应用
 在浏览器中打开链接	https://www.microsoft.com/store/apps/9N3GWKK61FL5 跳转微软商店后下载应用
