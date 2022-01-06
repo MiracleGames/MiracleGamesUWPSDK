@@ -87,19 +87,23 @@ public async void ShowPayChannel()
 广告素材：图片、视频、网页<br>
 其中横幅广告、插屏广告、对联广告、全屏插播广告都有特殊的设置，根据设置相应的参数来满足不同的呈现需求。<br>
 ```C#
-public MainPage()
+1.展示全屏广告
+public async void ShowFullScreenAd()
 {
-    this.InitializeComponent();
-    Loaded += (sender, args) =>
-    {
-         var auth = await MiracleGames.AuthenticationManager.AuthenticateAsync();
-         if (auth.ReturnValue)
-         {
-             //Log in success.
-             var uid =  MiracleGames.AuthenticationManager.UserInfo.Id;
-             var token =  MiracleGames.AuthenticationManager.UserInfo.Token;
-          }
-    };
+       AdvertisingManager.ShowAd(FullScreenAdID, AdType.FullScreen);
+}
+
+2.展示插屏广告
+public async void ShowInterstitialAdWithClose()
+{
+      await AdvertisingManager.ShowAd(InterstitialAdUnitId,
+      AdType.Interstitial,
+      new InterstitialAdSettingOptions {DisplayCloseButton = true});
+}
+3.展示全屏插播广告
+public async void ShowFullScreenInterstitialAd()
+{
+await AdvertisingManager.ShowAd(FullScreenInterstitialAdUnitId,AdType.FullScreenInterstitial);
 }
 ```
 ### 分享
