@@ -62,9 +62,9 @@ public MainPage()
 }
 ```
 ### 微软支付
-  在发起支付调用时，在开发者的系统中先生成一个订单号，然后把此订单号通过comment参数传递给支付接口。
-  支付过程完成后，会由MG的服务器给开发者发起回调，其中包含了此comment信息，开发者可以通过此信息将该订单号标记为支付成功，所有订单状态可在MG开发者管理中心查询。
-  当关闭支付窗口时，通过订单号在开发者的系统中查询是否成功，若成功则给用户发送道具。
+  在发起支付调用时，在开发者的系统中先生成一个订单号，然后把此订单号通过comment参数传递给支付接口。<br>
+  支付过程完成后，会由MG的服务器给开发者发起回调，其中包含了此comment信息，开发者可以通过此信息将该订单号标记为支付成功，所有订单状态可在MG开发者管理中心查询。<br>
+  当关闭支付窗口时，通过订单号在开发者的系统中查询是否成功，若成功则给用户发送道具。<br>
 ```C#
 public async void ShowPayChannel()
 {
@@ -80,5 +80,25 @@ public async void ShowPayChannel()
         var msg = new MessageDialog("Cancel payment.");
         await msg.ShowAsync();
     }
+}
+```
+### 广告
+广告表现形式：全屏广告、横幅广告、插屏广告、对联广告、全屏插播广告<br>
+广告素材：图片、视频、网页<br>
+其中横幅广告、插屏广告、对联广告、全屏插播广告都有特殊的设置，根据设置相应的参数来满足不同的呈现需求。<br>
+```C#
+public MainPage()
+{
+    this.InitializeComponent();
+    Loaded += (sender, args) =>
+    {
+         var auth = await MiracleGames.AuthenticationManager.AuthenticateAsync();
+         if (auth.ReturnValue)
+         {
+             //Log in success.
+             var uid =  MiracleGames.AuthenticationManager.UserInfo.Id;
+             var token =  MiracleGames.AuthenticationManager.UserInfo.Token;
+          }
+    };
 }
 ```
