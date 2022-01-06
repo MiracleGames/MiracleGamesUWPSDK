@@ -96,14 +96,34 @@ public async void ShowFullScreenAd()
 //2.展示插屏广告
 public async void ShowInterstitialAdWithClose()
 {
-      await AdvertisingManager.ShowAd(InterstitialAdUnitId,
-      AdType.Interstitial,
-      new InterstitialAdSettingOptions {DisplayCloseButton = true});
+      await AdvertisingManager.ShowAd(InterstitialAdUnitId,AdType.Interstitial, new InterstitialAdSettingOptions {DisplayCloseButton = true});
 }
 //3.展示全屏插播广告
 public async void ShowFullScreenInterstitialAd()
 {
-await AdvertisingManager.ShowAd(FullScreenInterstitialAdUnitId,AdType.FullScreenInterstitial);
+      await AdvertisingManager.ShowAd(FullScreenInterstitialAdUnitId,AdType.FullScreenInterstitial);
+}
+//4.展示横幅广告
+public async void ShowBannerAdWithClose()
+{
+      var bannerAd = await AdvertisingManager.ShowAd(BannerAdUnitId, AdType.Banner, 
+      new BannerAdSettingOptions
+      {
+                DisplayCloseButton = true,
+                HorizontalAlignment = HorizontalAlignment.Center,
+                VerticalAlignment = VerticalAlignment.Top
+      });
+}
+//5.展示对联广告
+public async void ShowCoupletAdWithClose()
+ {
+      var coupletAd = await AdvertisingManager.ShowAd(CoupletAdUnitId,AdType.Couplet,
+      new CoupletAdSettingOptions
+      {
+                DisplayCloseButton = true,
+                VerticalAlignment = VerticalAlignment.Top,
+                CoupletDisplayMode = CoupletDisplayMode.Both
+      });
 }
 ```
 ### 分享
