@@ -1,29 +1,165 @@
-[![](https://github.com/MiracleGames/MiracleGamesUWPSDK/blob/master/MGLogo.png)](https://www.mguwp.net/index.html)
+[![](https://github.com/MiracleGames/MiracleGamesUWPSDK/blob/master/images/MGLogo.png)](https://www.mguwp.net/index.html)
 # MiracleGamesSDK
-为UWP开发者提供一站式服务的解决方案!
+Provide one stop solution for UWP developers!
 ## Overview
- * Miracle Games SDK（简称：MG SDK）随着微软Windows 10系统发布后应运而生，始终以服务开发者为使命，SDK中充分使用了微软所提供的各项支持与服务，并结合自主研发的登录、社区、广告、分享等功能，为开发者登陆微软生态提供良好的基础。
- * MG SDK基于UWP开发，预留了C++、C#、JS等语言的功能接口，让开发者可以在多种开发环境中使用MG SDK，针对不同引擎不同终端研发的应用，我们提供开发者将安卓、iOS、H5、Web、Win32等应用程序快捷移植Win10 UWP版本对应的解决方案，并免费提供技术支持服务。
- * 经过多年Windows10 UWP应用开发技术沉淀和对接经验，MG SDK中的各种功能运作已经变的高效且稳定，并且在对接过程中总结出了一套专属于MG SDK的接入流程，能够让合作的开发者更加便捷的在应用或游戏中使用MG SDK，将其轻松的发布到微软应用商店。
- * MG汇聚了大量的技术专家成员打造了UWP开发者社区，免费为UWP开发者提供技术支持服务及技术培训，让更多的开发者加入到微软生态，为微软生态建设添砖加瓦。
+ * Miracle Games SDK (abbreviation: MG SDK) starts its lifespan after the release of Microsoft 10 system. With the mission of serving developers, the SDK fully uses various types of supports and services provided by Microsoft, and combines the self-developed login system, community system, advertising, sharing and other functions to provide a solid foundation for developers to log in to the Microsoft ecosystem. 
+ * MG SDK is developed based on UWP, reserved C++, C#, JS and other languages of the functional interface, so that developers can use the MG SDK in a variety of development environments. For applications developed on different engines and different terminals, we provide developers with corresponding solution to have Android, iOS, H5, Web, Win 32 and other applications quickly ported Win 10 UWP version, and provide them with free technical support services. 
+ * With years of Windows 10 UWP application development technology precipitation and experience accumulation, various functions in MG SDK have become efficient and stable. In the docking process, the whole process of exclusively docking MG SDK has been summarized, which makes it more convenient for cooperative developers to use the MG SDK in applications or games, and easily publish it to the Microsoft Store. 
+ * MG has brought together a large number of technical experts to create a UWP developer community, providing free technical support services and technical training for UWP developers, so that more developers can join the Microsoft ecosystem and contribute to the construction of the Microsoft ecosystem. 
 
-## 声明
-1. 本程序为MGSDK功能演示工程，仅用作学习交流使用，禁止用于商业用途。
-## MGSDK现有功能
-1. MG账号登录功能
-2. 开屏广告、横幅广告、对联广告、插屏广告、全屏插播广告、退屏广告
-3. 微软支付功能
-4. 分享功能
-5. 社区功能
-6. 微软好评功能
-## 如何运行工程
-### 环境需求
-- 需要win10开发系统
-- win10SDK 14393及以上版本
-- Visual Studio 2015及以上版本
-### 引用MGSDK
- 通过Nuget包的引用方式将MGSDKFile文件夹中的SDK文件引入示例工程中.
-SDK引用完成后即可运行示例工程,工程中演示了如何在UWP项目中接入MGSDK的各种功能.
-[![](https://github.com/MiracleGames/MiracleGamesUWPSDK/blob/master/uwpvs2.png)]()
-## 安装已上线的示例应用
-在浏览器中打开链接	https://www.microsoft.com/store/apps/9N3GWKK61FL5 跳转微软商店后下载应用
+## Announcement
+1. This program is an MG SDK functional demonstration which is only used for learning exchanges and is prohibited for commercial use. 
+## MG SDK existing features:
+1. MG account login function
+2. Open-screen ads, banner ads, interstitial ads, full-screen interstitial ads, and back-screen ads
+3. Microsoft Payment function
+4. Sharing function
+5. Community feature
+6. Microsoft comment function
+## How to run the program?
+### Environmental Requirements:
+- Win10 development system is required
+- Win10 SDK 14393 and later version
+- Visual Studio 2015 and later version
+### Docking with MG SDK:
+The SDK file in the MGSDKFile folder is introduced into the sample project by docking with Nuget package. After the SDK docking process is complete, the sample project can be operated, which demonstrates how to integrate different functions of the MG SDK in UWP project. 
+![](https://github.com/MiracleGames/MiracleGamesUWPSDK/blob/master/images/uwpvs2.png)
+## Install the sample App that is already live
+Open the link in your browser:https://www.microsoft.com/store/apps/9N3GWKK61FL5 Download the App after jumping to Microsoft Store
+## MGSDK Function Call Code Example（C#）
+### Initialization
+Before accessing other functions of MG SDK, initialize the SDK is needed at first. After the initialization is completed, all functions in the SDK can be accessed in the background system. In general, the SDK initialization interface is called after entering the program. The parameter used in the initialization interface is “APPKEY”, which needs to be created in the MG Developer Management Center system and is only associated identity of the application in MG.
+```C#
+Public Mainpage（）
+{
+    This.InitializeComponent（）;
+    Load + =（sender，args）=>
+    {      
+          var result = await MiracleGames.ApplicationManager.SetupAsync("YOUR_APP_KEY");      
+          if (!result.ReturnValue)
+             return;
+   };
+}
+```
+### Login
+When calling the login function, make sure that the SDK initialization has been successful. The login panel will automatically adapt the language according to the user’s current regional location. The user can log in and register with MG account, or use Microsoft accounts, Google accounts and other third-party accounts to log in. After the account is successfully logged in, information such as Token value and user ID is returned, which developers can use to verify the online status of the account on MG server. 
+```C#
+public MainPage()
+{
+    this.InitializeComponent();
+    Loaded += (sender, args) =>
+    {
+         var auth = await MiracleGames.AuthenticationManager.AuthenticateAsync();
+         if (auth.ReturnValue)
+         {
+             //Log in success.
+             var uid =  MiracleGames.AuthenticationManager.UserInfo.Id;
+             var token =  MiracleGames.AuthenticationManager.UserInfo.Token;
+          }
+    };
+}
+```
+### Microsoft Payment
+When initiating payment function, an order number is formed in developer’s system. The order number is passed to the payment interface though comment parameter. After the payment process is completed, MG’s server will initiate a callback to the developer, which contains this comment information. The developer can mark the order number as successfully paid through this information. All order status can be checked in the MG Developer Management Center. 
+When the payment window is closed, the order number is used to check whether the payment is successful in the developer’s system. If so, the prop can be sent to the user. 
+
+```C#
+public async void ShowPayChannel()
+{
+    if (!MiracleGames.ApplicationManager.SetupCompletedSuccessfully)
+        return;
+    var result = await MiracleGames.PaymentManager.OpenPayChannelAsync(goodsKey,comment, callbackId, true);
+    if (result.ReturnValue)
+    {
+       
+    }
+    else
+    {
+        var msg = new MessageDialog("Cancel payment.");
+        await msg.ShowAsync();
+    }
+}
+```
+### Advertisement
+Advertising forms: full-screen ads, banner ads, interstitial ads, couplet ads, full-screen interstitial ads<br>
+Creatives: images, videos, web pages<br>
+Among them, banner ads, interstitial ads, couplet ads, and full-screen interstitial ads have special settings, and the corresponding parameters are set to meet different presentation needs.<br>
+```C#
+//1.ShowFullScreenAd
+public async void ShowFullScreen()
+{
+       AdvertisingManager.ShowAd(FullScreenAdID, AdType.FullScreen);
+}
+
+//2.ShowInterstitialAd
+public async void ShowInterstitialAdWithClose()
+{
+      await AdvertisingManager.ShowAd(InterstitialAdUnitId,AdType.Interstitial, new InterstitialAdSettingOptions {DisplayCloseButton = true});
+}
+//3.ShowFullScreenInterstitialAd
+public async void ShowFullScreenInterstitial()
+{
+      await AdvertisingManager.ShowAd(FullScreenInterstitialAdUnitId,AdType.FullScreenInterstitial);
+}
+//4.ShowBannerAd
+public async void ShowBannerAdWithClose()
+{
+      var bannerAd = await AdvertisingManager.ShowAd(BannerAdUnitId, AdType.Banner, 
+      new BannerAdSettingOptions
+      {
+                DisplayCloseButton = true,
+                HorizontalAlignment = HorizontalAlignment.Center,
+                VerticalAlignment = VerticalAlignment.Top
+      });
+}
+//5.ShowCoupletAd
+public async void ShowCoupletAdWithClose()
+ {
+      var coupletAd = await AdvertisingManager.ShowAd(CoupletAdUnitId,AdType.Couplet,
+      new CoupletAdSettingOptions
+      {
+                DisplayCloseButton = true,
+                VerticalAlignment = VerticalAlignment.Top,
+                CoupletDisplayMode = CoupletDisplayMode.Both
+      });
+}
+```
+### Sharing
+The sharing interface in MG SDK can be implemented and called directly in the project. In the callback interface of this function, you can get the user’s notification of the sharing result. 
+```C#
+public async void ShowShareChannel()
+{
+	if (!MiracleGames.ApplicationManager.SetupCompletedSuccessfully)
+	{
+		return;
+	}	 
+	var sharingCommand = new MiracleGames.Models.SharingCommand
+	{
+		Title = "MyTitle",
+		Content = "MyContent",
+		LinkUrl = "http://www.mguwp.com"
+	};
+	var result = await    MiracleGames.SharingManager.OpenSharingChannelAsync(sharingCommand);
+	if (result.ReturnValue)
+	{
+	  //Share finished
+	}
+}
+```
+### Rating
+After accessing MG SDK, you can implement the Microsoft Rating function by calling the interface provided in the MG SDK and obtain the return information of the rating operation in the callback interface of the method.
+```C#
+public async void isRatingReview()
+{
+	if (!MiracleGames.ApplicationManager.SetupCompletedSuccessfully)
+	{
+		return;
+	}
+	var result = await MiracleGames.ApplicationManager.IsRatingReviewedAsync();
+	if (result.ReturnValue)
+	{
+		result.ReturnValue==true: //got favourable comment from the user
+		result.ReturnValue==false:
+	}
+}
+```
