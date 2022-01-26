@@ -1,12 +1,81 @@
-2.6.6.1版本
-【新增】支持全球用户手机绑定功能
-【新增】登录界面添加显示密码功能
-【新增】支持简体中文、英语、德育、法语、意大利语、俄语、韩语、等多种语言界面，根据用户IP地址切换语种。
-2.6.6.2版本
-【新增】登录和支付窗口分辨率适配功能，支持竖屏分辨率的游戏
-【修复】微软支付：修改了请求打开微软支付接口的代码，解决了因数据解析导致支付失败的问题。
-2.6.6.3版本
-【新增】谷歌广告功能，开发者可通过接口开启谷歌广告
-【新增】气泡开启或者关闭，积分墙应用安装，积分墙任务奖励的JS回调接口
-2.7.0.0版本
-【修复】修改了谷歌广告接口，用户可接入多种类型的谷歌广告，并设置了谷歌广告的回调接口。
+UWPSDK
+Version Number:  UWPSDK2.6.1.0
+What's New: 1. Implement full-screen ads controls
+                    2. Fixed Microsoft Payment UI thread bug
+
+Version Number：UWPSDK2.6.1.1
+What's New: 1. Implement Banner ads, couplet ads, back-screen ads
+                    2. Videos are supported for interstitial and full-screen ads
+       	    3. Ads support multiple languages
+                    4. Bubble switch is fixed, only one bubble can be displayed
+                    5. Improve the account registration restriction function
+                    6. Implement the function of binding mobile number
+                    7. Implement mobile number login function
+                    8. Expand payment interface, support determining payment method based on players’ level
+                    9. Add a new payment interface and abolish the old one
+
+Version Number：UWPSDK2.6.2.0
+What's New: 1. Add mobile number login and third party login
+                    2. Merge the AD SDK and the basic SDK
+                    3. Update multilingual translations
+
+Version Number：UWPSDK2.6.3.0
+What's New: 1. Conducting Url encoding on comments of payment linked products
+                    2. Log into UI to add the display of SDK version number
+
+Version Number：UWPSDK2.6.3.1
+What's New:  1. Add a close button to the payment interface
+                     2. Add a back button on third-party login window, and the mobile login entrance is controlled by the backstage
+                     3. Binding email, mobile and separate the mobile login timer, complete information optimization
+
+Version Number：UWPSDK2.6.4.0
+What's New:  1. Update H5 interface, compatible with old interface
+                     2. Update multilingual translation status
+                     3. Pack mguwp.js, compatible with new/old interfaces
+                     4. The login UI displays the registration page by default
+
+Version Number：UWPSDK2.6.4.1
+What's New：1. Adjust some page navigation relationships and update translations
+                     2. Supply the processing of application activation after advertising message push
+                     3. Fix anti-combo during registration operation, minor adjustment of interface layout, update Chinese translation
+
+Version Number：UWPSDK2.6.5.0
+What's New：1. H5 supports calling the Review interface, fix bugs in the review interface
+                     2. Initially add Google AdSense
+                     3. Improve Google Ads controls and vm logic
+
+Version Number：UWPSDK2.6.5.1
+What's New：1. Refine the Google Play ads control logic
+                     2. Improve the logic of content ads control
+                     3. Login and payment channel interface resolution adaptation
+                     4. Empty the web navigation before the bubble closes
+
+Version Number：UWPSDK2.6.5.2
+What's New：1. Fix the bug that comment parameter of urlencode runs more than once while using Microsoft payment for the order 
+
+Version Number：UWPSDK2.6.6.0
+What's New： 1. Remove the Google Ads widget off button, minimize the size of game ads
+
+Version Number：UWPSDK2.6.6.1
+What's New： 1. Add H5 callback interface for bubble switch & integration wall
+                      2. Implement H5 ads closing callback
+                     3. Implement H5 ads click-back
+                     4. Implement H5 Google Ads interface
+                     5. Implement real-name authentication function
+                     6. Implement anti-addition detection logic for logged-in users
+
+Version Number：UWPSDK2.6.6.2
+What's New：1. Try to replace product Id based on msGoodsKeyJson while using Microsoft Payment to place an order
+                     2. Fix the notification fulfillment asset interface resulting analyzing bug
+                     3. Expand the number of historical accounts to 10, and add the function of deleting historical accounts
+                     4. Optimize the interaction of the drop-down list of historical accounts, and the delete button is displayed when the mouse is moved to a certain account
+                    5. Identify whether UserInfo,Type is a switch account
+                    6. Replace the forgotten password link
+
+Version Number：UWPSDK2.6.6.3
+What's New： 1. Fix the bug where the current user did not refresh the history after modifying the password login
+                      2. Initialize the interface to add a bubble switch, and automatically call the display bubble interface after login
+                      3. Implement the new version of the universal Google Ads interface
+
+Version Number：UWPSDK2.7.0.0
+What's New： 1. Add GoogleAd control switch
