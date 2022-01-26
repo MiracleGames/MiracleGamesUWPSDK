@@ -26,8 +26,8 @@ Provide one stop solution for UWP developers!
 The SDK file in the MGSDKFile folder is introduced into the sample project by docking with Nuget package. After the SDK docking process is complete, the sample project can be operated, which demonstrates how to integrate different functions of the MG SDK in UWP project. 
 ![](https://github.com/MiracleGames/MiracleGamesUWPSDK/blob/master/images/uwpvs2.png)
 ## Install the sample App that is already live
-Open the link in your browser:https://www.microsoft.com/store/apps/9N3GWKK61FL5 Download the App after jumping to Microsoft Store
-[Details about MiracleGamesSDK](https://www.mguwp.net/en/downResource/MiracleGamesSDKIntroduce_EN.pdf) 
+* Open the link in your browser:https://www.microsoft.com/store/apps/9N3GWKK61FL5 Download the App after jumping to Microsoft Store
+* [Details about MiracleGamesSDK](https://www.mguwp.net/en/downResource/MiracleGamesSDKIntroduce_EN.pdf) 
 ## MGSDK Function Call Code Example（C#）
 * [MG SDK Access and Function Demonstration](https://doc.mguwp.net/video/mgsdkdemo.mp4)
 ### Initialization
