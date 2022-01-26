@@ -6,9 +6,9 @@ Provide one stop solution for UWP developers!
  * MG SDK is developed based on UWP, reserved C++, C#, JS and other languages of the functional interface, so that developers can use the MG SDK in a variety of development environments. For applications developed on different engines and different terminals, we provide developers with corresponding solution to have Android, iOS, H5, Web, Win 32 and other applications quickly ported Win 10 UWP version, and provide them with free technical support services. 
  * With years of Windows 10 UWP application development technology precipitation and experience accumulation, various functions in MG SDK have become efficient and stable. In the docking process, the whole process of exclusively docking MG SDK has been summarized, which makes it more convenient for cooperative developers to use the MG SDK in applications or games, and easily publish it to the Microsoft Store. 
  * MG has brought together a large number of technical experts to create a UWP developer community, providing free technical support services and technical training for UWP developers, so that more developers can join the Microsoft ecosystem and contribute to the construction of the Microsoft ecosystem. 
-
+ * Visit [Miracle Games developer Platform](https://doc.mguwp.net/en/Introduction.html) for more content.
 ## Announcement
-1. This program is an MG SDK functional demonstration which is only used for learning exchanges and is prohibited for commercial use. 
+ This program is an MG SDK functional demonstration which is only used for learning exchanges and is prohibited for commercial use. 
 ## MG SDK existing features:
 1. MG account login function
 2. Open-screen ads, banner ads, interstitial ads, full-screen interstitial ads, and back-screen ads
@@ -27,6 +27,7 @@ The SDK file in the MGSDKFile folder is introduced into the sample project by do
 ## Install the sample App that is already live
 Open the link in your browser:https://www.microsoft.com/store/apps/9N3GWKK61FL5 Download the App after jumping to Microsoft Store
 ## MGSDK Function Call Code Example（C#）
+[MG SDK Access and Function Demonstration](https://doc.mguwp.net/video/mgsdkdemo.mp4)
 ### Initialization
 Before accessing other functions of MG SDK, initialize the SDK is needed at first. After the initialization is completed, all functions in the SDK can be accessed in the background system. In general, the SDK initialization interface is called after entering the program. The parameter used in the initialization interface is “APPKEY”, which needs to be created in the MG Developer Management Center system and is only associated identity of the application in MG.
 ```C#
