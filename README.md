@@ -9,6 +9,7 @@ Provide one stop solution for UWP developers!
  * Visit [Miracle Games developer Platform](https://doc.mguwp.net/en/Introduction.html) for more content.
 ## Announcement
  This program is an MG SDK functional demonstration which is only used for learning exchanges and is prohibited for commercial use. 
+ 
 ## MG SDK existing features:
 1. MG account login function
 2. Open-screen ads, banner ads, interstitial ads, full-screen interstitial ads, and back-screen ads
@@ -16,7 +17,6 @@ Provide one stop solution for UWP developers!
 4. Sharing function
 5. Community feature
 6. Microsoft comment function<br>
-[Details about MiracleGamesSDK](https://www.mguwp.net/en/downResource/MiracleGamesSDKIntroduce_EN.pdf) 
 ## How to run the program?
 ### Environmental Requirements:
 - Win10 development system is required
@@ -27,9 +27,9 @@ The SDK file in the MGSDKFile folder is introduced into the sample project by do
 ![](https://github.com/MiracleGames/MiracleGamesUWPSDK/blob/master/images/uwpvs2.png)
 ## Install the sample App that is already live
 Open the link in your browser:https://www.microsoft.com/store/apps/9N3GWKK61FL5 Download the App after jumping to Microsoft Store
+[Details about MiracleGamesSDK](https://www.mguwp.net/en/downResource/MiracleGamesSDKIntroduce_EN.pdf) 
 ## MGSDK Function Call Code Example（C#）
 * [MG SDK Access and Function Demonstration](https://doc.mguwp.net/video/mgsdkdemo.mp4)
-
 ### Initialization
 Before accessing other functions of MG SDK, initialize the SDK is needed at first. After the initialization is completed, all functions in the SDK can be accessed in the background system. In general, the SDK initialization interface is called after entering the program. The parameter used in the initialization interface is “APPKEY”, which needs to be created in the MG Developer Management Center system and is only associated identity of the application in MG.
 ```C#
