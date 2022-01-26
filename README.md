@@ -16,6 +16,7 @@ Provide one stop solution for UWP developers!
 4. Sharing function
 5. Community feature
 6. Microsoft comment function
+[Details about MGSDK](https://www.mguwp.net/en/downResource/MiracleGamesSDKIntroduce_EN.pdf) 
 ## How to run the program?
 ### Environmental Requirements:
 - Win10 development system is required
@@ -28,6 +29,7 @@ The SDK file in the MGSDKFile folder is introduced into the sample project by do
 Open the link in your browser:https://www.microsoft.com/store/apps/9N3GWKK61FL5 Download the App after jumping to Microsoft Store
 ## MGSDK Function Call Code Example（C#）
 [MG SDK Access and Function Demonstration](https://doc.mguwp.net/video/mgsdkdemo.mp4)
+
 ### Initialization
 Before accessing other functions of MG SDK, initialize the SDK is needed at first. After the initialization is completed, all functions in the SDK can be accessed in the background system. In general, the SDK initialization interface is called after entering the program. The parameter used in the initialization interface is “APPKEY”, which needs to be created in the MG Developer Management Center system and is only associated identity of the application in MG.
 ```C#
