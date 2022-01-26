@@ -16,7 +16,7 @@ Provide one stop solution for UWP developers!
 4. Sharing function
 5. Community feature
 6. Microsoft comment function<br>
-  [Details about MGSDK](https://www.mguwp.net/en/downResource/MiracleGamesSDKIntroduce_EN.pdf) 
+		[Details about MGSDK](https://www.mguwp.net/en/downResource/MiracleGamesSDKIntroduce_EN.pdf) 
 ## How to run the program?
 ### Environmental Requirements:
 - Win10 development system is required
