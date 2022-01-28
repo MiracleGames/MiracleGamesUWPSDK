@@ -1,4 +1,4 @@
-(https://github.com/MiracleGames/MiracleGamesUWPSDK/blob/master/images/MGLogo.png)](https://www.mguwp.net/index.html)
+[]ttps://github.com/MiracleGames/MiracleGamesUWPSDK/blob/master/images/MGLogo.png)](https://www.mguwp.net/index.html)
 # MiracleGamesSDK
 Provide one stop solution for UWP developers!
 ## Overview
