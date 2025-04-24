@@ -62,6 +62,22 @@ public MainPage()
     };
 }
 ```
+### Community 
+After logging into your account, you can invoke the community code to activate the service and generate a left-side entry icon. Clicking this icon unfolds an integrated community interface that consolidates real-time support, reward pack redemption, official forum access, achievement showcase, customer support contact, and other functional modules into a unified community experience.
+```C#
+public MainPage()
+{
+    this.InitializeComponent();
+    Loaded += (sender, args) =>
+    {
+         var auth = await MiracleGames.AuthenticationManager.AuthenticateAsync();
+         if (auth.ReturnValue)//Log in success.
+         {
+             MiracleGames.BubbleManager.ShowBubble();//Enable the community function
+         }
+    };
+}
+```
 ### Microsoft Payment
 When initiating payment function, an order number is formed in developer’s system. The order number is passed to the payment interface though comment parameter. After the payment process is completed, MG’s server will initiate a callback to the developer, which contains this comment information. The developer can mark the order number as successfully paid through this information. All order status can be checked in the MG Developer Management Center. 
 When the payment window is closed, the order number is used to check whether the payment is successful in the developer’s system. If so, the prop can be sent to the user. 
