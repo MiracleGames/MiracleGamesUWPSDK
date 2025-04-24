@@ -1,5 +1,5 @@
 [![](https://github.com/MiracleGames/MiracleGamesUWPSDK/raw/master/images/MGLogo.png)](https://www.mguwp.net/index.html)
-# MiracleGamesSDK
+# MiracleGamesUWPSDK
 Provide one stop solution for UWP developers!
 ## Overview
  * Miracle Games SDK (abbreviation: MG SDK) starts its lifespan after the release of Microsoft 10 system. With the mission of serving developers, the SDK fully uses various types of supports and services provided by Microsoft, and combines the self-developed login system, community system, advertising, sharing and other functions to provide a solid foundation for developers to log in to the Microsoft ecosystem. 
